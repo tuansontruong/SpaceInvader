@@ -1,6 +1,6 @@
 const ImageFiles = [
     'Ship3',
-    'shot3_asset'
+    'shot3_asset.png'
 ];
 const GameSetting = {
     keyPresses: {
@@ -14,7 +14,7 @@ const GameSetting = {
 
     bulletSpeed: 700 / 1000,
     bulletLife: 4000,
-    bulletFireRate: 2000,
+    bulletFireRate: 1000,
 
 
 
@@ -39,7 +39,6 @@ const GameSetting = {
 let GameManager = {
     assets: {},
     player: undefined,
-    bullets: undefined,
     lastUpdated: Date.now(),
     elapsedTime: 0,
     fps: 0,

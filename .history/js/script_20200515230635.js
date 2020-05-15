@@ -1,5 +1,5 @@
 function resetBullet() {
-    if (GameManager.bullets) {
+    if (!GameManager.bullets) {
         GameManager.bullets.reset();
     } else {
         GameManager.bullets = new BulletCollection(GameManager.player);

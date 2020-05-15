@@ -1,6 +1,6 @@
 const ImageFiles = [
     'Ship3',
-    'shot3_asset'
+    'shot3_asset.png'
 ];
 const GameSetting = {
     keyPresses: {

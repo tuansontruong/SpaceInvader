@@ -1,5 +1,5 @@
 function resetBullet() {
-    if (GameManager.bullets) {
+    if (!GameManger.bullets) {
         GameManager.bullets.reset();
     } else {
         GameManager.bullets = new BulletCollection(GameManager.player);
@@ -21,7 +21,6 @@ function resetPlayer() {
 
 function resetGame() {
     resetPlayer();
-    resetBullet();
     setTimeout(tick, GameSetting.targetFPS);
 
 }
@@ -53,9 +52,6 @@ function tick() {
     GameManager.fps = parseInt(1000 / dt);
 
     $('#divFPS').text("FPS: " + GameManager.fps);
-
-    GameManager.bullets.update(dt);
-
     setTimeout(tick, GameSetting.targetFPS);
 }
 
