@@ -4,7 +4,7 @@ function resetPlayer() {
         GameManager.player = new Player(GameSetting.playerDivName,
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
-            new Rect(45, 45, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 100));
+            new Rect(40, 40, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 80));
     }
     GameManager.player.addToBoard(1);
     console.log('resetPlayer()', GameManager.player);
@@ -13,7 +13,6 @@ function resetPlayer() {
 
 function init() {
     resetPlayer();
-    setTimeout(tick, GameSetting.targetFPS);
 
 }
 
@@ -35,16 +34,6 @@ function proccessAsset(indexNum) {
             init();
         }
     }
-}
-
-function tick() {
-    let now = Date.now();
-    let dt = now - GameManager.lastUpdated;
-    GameManager.lastUpdated = now;
-    GameManager.fps = parseInt(1000 / dt);
-
-    $('#divFPS').text("FPS: " + GameManager.fps);
-    setTimeout(tick, GameSetting.targetFPS);
 }
 
 $(function() {

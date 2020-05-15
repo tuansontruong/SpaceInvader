@@ -15,7 +15,7 @@ body {
     width: 720px;
     height: 576px;
     border: solid green 2px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #scoreContainer {

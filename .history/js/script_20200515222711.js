@@ -13,7 +13,6 @@ function resetPlayer() {
 
 function init() {
     resetPlayer();
-    setTimeout(tick, GameSetting.targetFPS);
 
 }
 

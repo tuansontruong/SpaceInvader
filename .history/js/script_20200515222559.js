@@ -13,7 +13,6 @@ function resetPlayer() {
 
 function init() {
     resetPlayer();
-    setTimeout(tick, GameSetting.targetFPS);
 
 }
 
@@ -42,9 +41,6 @@ function tick() {
     let dt = now - GameManager.lastUpdated;
     GameManager.lastUpdated = now;
     GameManager.fps = parseInt(1000 / dt);
-
-    $('#divFPS').text("FPS: " + GameManager.fps);
-    setTimeout(tick, GameSetting.targetFPS);
 }
 
 $(function() {

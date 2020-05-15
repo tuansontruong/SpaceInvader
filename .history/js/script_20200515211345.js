@@ -3,18 +3,14 @@ function resetPlayer() {
         let asset = GameManager.assets['Ship3'];
         GameManager.player = new Player(GameSetting.playerDivName,
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
-            asset,
-            new Rect(45, 45, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 100));
+            asset);
     }
     GameManager.player.addToBoard(1);
     console.log('resetPlayer()', GameManager.player);
-    GameManager.player.reset();
 }
 
 function init() {
     resetPlayer();
-    setTimeout(tick, GameSetting.targetFPS);
-
 }
 
 function proccessAsset(indexNum) {
@@ -37,32 +33,21 @@ function proccessAsset(indexNum) {
     }
 }
 
-function tick() {
-    let now = Date.now();
-    let dt = now - GameManager.lastUpdated;
-    GameManager.lastUpdated = now;
-    GameManager.fps = parseInt(1000 / dt);
-
-    $('#divFPS').text("FPS: " + GameManager.fps);
-    setTimeout(tick, GameSetting.targetFPS);
-}
-
 $(function() {
     proccessAsset(0)
     $(document).keydown(
         function(e) {
             switch (e.which) {
                 case GameSetting.keyPresses.up:
-                    GameManager.player.move(0, -1);
+                    console.log("up");
                     break;
                 case GameSetting.keyPresses.down:
-                    GameManager.player.move(0, 1);
+                    console.log("down");
                     break;
                 case GameSetting.keyPresses.left:
-                    GameManager.player.move(-1, 0);
-                    break;
+                    console.log("left");
                 case GameSetting.keyPresses.right:
-                    GameManager.player.move(1, 0);
+                    console.log("right");
                     break;
             }
         }

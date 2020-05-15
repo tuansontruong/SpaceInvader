@@ -30,8 +30,5 @@ const GameSetting = {
 
 let GameManager = {
     assets: {},
-    player: undefined,
-    lastUpdated: Date.now(),
-    elapsedTime: 0,
-    fps: 0,
+    player: undefined
 }
