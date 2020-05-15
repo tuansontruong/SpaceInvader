@@ -6,12 +6,10 @@ function resetPlayer() {
             asset.fileName,
             new Size(asset.width, asset.height));
     }
-    GameManager.player.addToBoard(1);
-    console.log('resetPlayer()', GameManager.player);
 }
 
 function init() {
-    resetPlayer();
+
 }
 
 function proccessAsset(indexNum) {

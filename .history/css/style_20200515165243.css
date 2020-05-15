@@ -18,26 +18,9 @@ body {
 }
 
 #scoreContainer {
-    left: 15px;
-    top: 15px;
+    left: 10px;
+    top: 10px;
     position: absolute;
     text-align: left;
     z-index: 30;
-}
-
-.score {
-    padding: 10px;
-}
-
-.sprite {
-    /* background-image: url("../img/Ship3.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: rotate(-90deg);
-    width: 128px;
-    height: 128px;
-    top: 400px;
-    left: 360px; */
-    position: absolute;
-    z-index: 10;
 }

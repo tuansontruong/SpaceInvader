@@ -6,7 +6,7 @@ function resetPlayer() {
             asset.fileName,
             new Size(asset.width, asset.height));
     }
-    GameManager.player.addToBoard(1);
+    GameManager.player.addToBoard(true);
     console.log('resetPlayer()', GameManager.player);
 }
 

@@ -2,16 +2,15 @@ function resetPlayer() {
     if (!GameManager.player) {
         let asset = GameManager.assets['Ship3'];
         GameManager.player = new Sprite(GameSetting.playerDivName,
-            new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
+            new Point(GameSetting.playerStart.x,
+                GameSetting.playerStart.y),
             asset.fileName,
             new Size(asset.width, asset.height));
     }
-    GameManager.player.addToBoard(1);
-    console.log('resetPlayer()', GameManager.player);
 }
 
 function init() {
-    resetPlayer();
+
 }
 
 function proccessAsset(indexNum) {

@@ -28,16 +28,3 @@ body {
 .score {
     padding: 10px;
 }
-
-.sprite {
-    /* background-image: url("../img/Ship3.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: rotate(-90deg);
-    width: 128px;
-    height: 128px;
-    top: 400px;
-    left: 360px; */
-    position: absolute;
-    z-index: 10;
-}
