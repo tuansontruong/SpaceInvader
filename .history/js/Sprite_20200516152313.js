@@ -44,12 +44,10 @@ class Sprite {
     }
     updatePosition(x, y) {
         this.position.update(x, y);
-        this.containingBox.update(this.position.x, this.position.y);
         this.draw();
     }
     incrementPosition(ix, iy) {
         this.position.increment(ix, iy);
-        this.containingBox.update(this.position.x, this.position.y);
         this.draw();
     }
 }

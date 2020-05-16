@@ -117,7 +117,7 @@ class EnemyCollection {
             } else if (this.listEnemies[i].state == GameSetting.enemyState.movingToWaypoint) {
                 for (let b = 0; b < this.bullets.listBullets.length; ++b) {
                     let bullet = this.bullets.listBullets[b];
-                    if (!bullet.dead && bullet.position.y > GameSetting.bulletTop && enemy.containingBox.IntersectedBy(bullet.containingBox)) {
+                    if (!bullet.dead && bullet.position.y > GameSetting.bulletTop && bullet.containingBox.IntersectedBy(enemy.containingBox)) {
                         bullet.remove();
                         enemy.lives--;
                         if (enemy.lives <= 0) {

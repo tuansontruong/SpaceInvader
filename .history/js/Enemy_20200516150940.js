@@ -88,15 +88,6 @@ class EnemyCollection {
         this.bullets = bullets;
     }
 
-    reset() {
-        this.killAll();
-        this.listEnemies = [];
-        this.lastAdded = 0;
-        this.gameOver = false;
-        this.sequenceIndex = 0;
-        this.sequencesDone = false;
-        this.count = 0;
-    }
     killAll() {
         for (let i = 0; i < this.listEnemies.length; ++i) {
             this.listEnemies[i].remove();
@@ -111,22 +102,10 @@ class EnemyCollection {
         }
 
         for (let i = this.listEnemies.length - 1; i >= 0; --i) {
-            let enemy = this.listEnemies[i];
-            if (enemy.state == GameSetting.enemyState.dead) {
+            if (this.listEnemies[i].state == GameSetting.enemyState.dead) {
                 this.listEnemies.splice(i, 1);
-            } else if (this.listEnemies[i].state == GameSetting.enemyState.movingToWaypoint) {
-                for (let b = 0; b < this.bullets.listBullets.length; ++b) {
-                    let bullet = this.bullets.listBullets[b];
-                    if (!bullet.dead && bullet.position.y > GameSetting.bulletTop && enemy.containingBox.IntersectedBy(bullet.containingBox)) {
-                        bullet.remove();
-                        enemy.lives--;
-                        if (enemy.lives <= 0) {
-                            this.player.incrementScore(enemy.score);
-                            enemy.remove();
-                        }
-                    }
-                }
-                enemy.update(dt);
+            } else {
+                this.listEnemies[i].update(dt);
             }
         }
 

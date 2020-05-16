@@ -111,22 +111,11 @@ class EnemyCollection {
         }
 
         for (let i = this.listEnemies.length - 1; i >= 0; --i) {
-            let enemy = this.listEnemies[i];
-            if (enemy.state == GameSetting.enemyState.dead) {
+            let element = this.listEnemies[i];
+            if (element.state == GameSetting.enemyState.dead) {
                 this.listEnemies.splice(i, 1);
-            } else if (this.listEnemies[i].state == GameSetting.enemyState.movingToWaypoint) {
-                for (let b = 0; b < this.bullets.listBullets.length; ++b) {
-                    let bullet = this.bullets.listBullets[b];
-                    if (!bullet.dead && bullet.position.y > GameSetting.bulletTop && enemy.containingBox.IntersectedBy(bullet.containingBox)) {
-                        bullet.remove();
-                        enemy.lives--;
-                        if (enemy.lives <= 0) {
-                            this.player.incrementScore(enemy.score);
-                            enemy.remove();
-                        }
-                    }
-                }
-                enemy.update(dt);
+            } else if (this.listEnemies[i].state == GameSettings.enemyState.movingToWaypoint) {
+                element.update(dt);
             }
         }
 

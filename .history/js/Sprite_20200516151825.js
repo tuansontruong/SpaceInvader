@@ -36,7 +36,6 @@ class Sprite {
 
     setPosition(x, y, shift) {
         this.position.update(x, y);
-        this.containingBox.update(this.position.x, this.position.y);
         if (shift) {
             this.incrementPosition(this.anchorShift.x, this.anchorShift.y);
         }
@@ -44,12 +43,10 @@ class Sprite {
     }
     updatePosition(x, y) {
         this.position.update(x, y);
-        this.containingBox.update(this.position.x, this.position.y);
         this.draw();
     }
     incrementPosition(ix, iy) {
         this.position.increment(ix, iy);
-        this.containingBox.update(this.position.x, this.position.y);
         this.draw();
     }
 }
