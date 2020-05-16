@@ -17,6 +17,7 @@ class Bullet extends Sprite {
     }
 
     remove() {
+        alert("aaa");
         this.dead = true;
         this.removeFromBoard();
     }
@@ -52,6 +53,7 @@ class BulletCollection {
         this.lastAdded += dt;
 
         if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {
+
             this.lastAdded = 0;
             this.listBullets.push(
                 new Bullet(

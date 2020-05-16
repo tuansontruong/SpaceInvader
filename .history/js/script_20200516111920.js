@@ -58,8 +58,7 @@ function tick() {
 }
 
 $(function() {
-    proccessAsset(0);
-    setUpSequences();
+    proccessAsset(0)
     $(document).keydown(
         function(e) {
             switch (e.which) {

@@ -7,18 +7,21 @@ const ImageFiles = [
 
 const WayPoints = {
     LEFTTORIGHTSHALLOW: [{
+            rotation: 0,
             x: 60,
             y: -90,
             dir_x: 0,
             dir_y: 0
         },
         {
+            rotation: 0,
             x: 60,
             y: 128,
             dir_x: 0,
             dir_y: 1
         },
         {
+            rotation: 0,
             x: 810,
             y: 128,
             dir_x: 1,
@@ -26,12 +29,14 @@ const WayPoints = {
         }
     ],
     STREAMFROMB180: [{
+            rotation: 0,
             x: 180,
             y: 620,
             dir_x: 0,
             dir_y: 0
         },
         {
+            rotation: 0,
             x: 180,
             y: -90,
             dir_x: 0,
@@ -39,8 +44,6 @@ const WayPoints = {
         }
     ]
 };
-
-let EnemySequences = [];
 
 
 const GameSetting = {

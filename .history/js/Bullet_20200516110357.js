@@ -49,6 +49,7 @@ class BulletCollection {
                 this.listBullets[i].update(dt);
             }
         }
+        alert(dt);
         this.lastAdded += dt;
 
         if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {

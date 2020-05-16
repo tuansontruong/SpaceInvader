@@ -51,15 +51,16 @@ function tick() {
     let dt = now - GameManager.lastUpdated;
     GameManager.lastUpdated = now;
     // GameManager.fps = parseInt(1000 / dt);
-    // $('#divFPS').text("FPS: " + GameManager.fps);
+
+    $('#divFPS').text("FPS: " + GameManager.fps);
+
     GameManager.bullets.update(dt);
 
-    setTimeout(tick, GameSetting.targetFPS);
+    // setTimeout(tick, GameSetting.targetFPS);
 }
 
 $(function() {
-    proccessAsset(0);
-    setUpSequences();
+    proccessAsset(0)
     $(document).keydown(
         function(e) {
             switch (e.which) {

@@ -52,6 +52,7 @@ class BulletCollection {
         this.lastAdded += dt;
 
         if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {
+            alert("aaa");
             this.lastAdded = 0;
             this.listBullets.push(
                 new Bullet(

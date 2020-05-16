@@ -40,8 +40,6 @@ const WayPoints = {
     ]
 };
 
-let EnemySequences = [];
-
 
 const GameSetting = {
     keyPresses: {

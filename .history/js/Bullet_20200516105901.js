@@ -11,6 +11,7 @@ class Bullet extends Sprite {
         let inc = dt * GameSetting.bulletSpeed;
         this.incrementPosition(0, -inc);
         this.life -= dt;
+        alert(this.life);
         if (this.life < 0) {
             this.remove();
         }
@@ -52,6 +53,7 @@ class BulletCollection {
         this.lastAdded += dt;
 
         if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {
+
             this.lastAdded = 0;
             this.listBullets.push(
                 new Bullet(
