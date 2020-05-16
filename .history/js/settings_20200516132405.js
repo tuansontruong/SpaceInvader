@@ -57,6 +57,8 @@ const GameSetting = {
     bulletLife: 4000,
     bulletFireRate: 200,
 
+
+
     playAreaWidth: 720,
     playAreaHeight: 576,
     playAreaDiv: '#playArea',
@@ -77,20 +79,7 @@ const GameSetting = {
         ready: 1,
         dead: 0,
         movingToWaypoint: 2
-    },
-
-
-    gamePhase: {
-        readyToplay: 1,
-        countdownToStart: 2,
-        playing: 3,
-        gameOver: 4
-    },
-
-    countdownGap: 700,
-    countDownValues: ['2', '1', 'GO!']
-
-
+    }
 };
 
 let GameManager = {

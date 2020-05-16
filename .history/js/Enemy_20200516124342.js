@@ -1,7 +1,7 @@
 class Enemy extends Sprite {
     constructor(divName, assetDesc, player, sequence) {
         super(divName, new Point(0, 0), assetDesc.fileName, new Size(assetDesc.width, assetDesc.height));
-        this.state = GameSetting.enemyState.ready;
+        this.state = GameSettings.enemyState.ready;
         this.waypointList = [];
         this.targetWayPointNumber = 0;
         this.targetWayPoint = new Waypoint(0, 0, 0, 0);
@@ -29,7 +29,7 @@ class Enemy extends Sprite {
 
     update(dt) {
         switch (this.state) {
-            case GameSetting.enemyState.movingToWaypoint:
+            case GameSettings.enemyState.movingToWaypoint:
                 this.moveTowardPoint(dt);
                 break;
         }
@@ -44,9 +44,10 @@ class Enemy extends Sprite {
             this.updatePosition(this.targetWayPoint.point.x, this.targetWayPoint.point.y);
         }
 
-        if (this.position.equalToPoint(this.targetWayPoint.point.x, this.targetWayPoint.point.y)) {
+        if (this.position.equalToPoint(this.targetWayPoint.point.x, this.targetWayPoint.point.y) == true) {
             if (this.targetWayPointNumber == this.lastWayPointIndex) {
                 this.remove();
+                console.log('reached end');
             } else {
                 this.setNextWayPoint();
             }
@@ -59,7 +60,7 @@ class Enemy extends Sprite {
     }
 
     remove() {
-        this.state = GameSetting.enemyState.dead;
+        this.state = GameSettings.enemyState.dead;
         this.removeFromBoard();
     }
 
@@ -72,64 +73,7 @@ class Enemy extends Sprite {
 
         this.targetWayPointNumber = 1;
         this.targetWayPoint = this.waypointList[this.targetWayPointNumber];
-        this.state = GameSetting.enemyState.movingToWaypoint;
-    }
-}
-
-class EnemyCollection {
-    constructor(player) {
-        this.listEnemies = [];
-        this.lastAdded = 0;
-        this.gameOver = false;
-        this.sequenceIndex = 0;
-        this.sequencesDone = false;
-        this.count = 0;
-        this.player = player;
-    }
-
-    killAll() {
-        for (let i = 0; i < this.listEnemies.length; ++i) {
-            this.listEnemies[i].remove();
-        }
-    }
-
-    update(dt) {
-        this.lastAdded += dt;
-        if (!this.sequencesDone &&
-            EnemySequences[this.sequenceIndex].delayBefore < this.lastAdded) {
-            this.addEnemy();
-        }
-
-        for (let i = this.listEnemies.length - 1; i >= 0; --i) {
-            if (this.listEnemies[i].state == GameSetting.enemyState.dead) {
-                this.listEnemies.splice(i, 1);
-            } else {
-                this.listEnemies[i].update(dt);
-            }
-        }
-
-        this.checkGameOver();
-    }
-
-    checkGameOver() {
-        if (this.listEnemies.length == 0 && this.sequencesDone) {
-            this.gameOver = true;
-            console.log('game over');
-        }
-    }
-
-    addEnemy() {
-        let seq = EnemySequences[this.sequenceIndex];
-        let en_new = new Enemy('en_' + this.count, GameManager.assets[seq.image],
-            this.player, seq);
-        this.listEnemies.push(en_new);
-        en_new.setMoving();
-        this.count++;
-        this.sequenceIndex++;
-        this.lastAdded = 0;
-        if (this.sequenceIndex == EnemySequences.length) {
-            this.sequencesDone = true;
-        }
+        this.state = GameSettings.enemyState.movingToWaypoint;
     }
 }
 

@@ -1,5 +1,5 @@
 function resetEnemies() {
-    GameManager.enemies = new EnemyCollection(GameManager.player);
+    GameManager.dfdfdf = new EnemyCollection(GameManager.player);
 }
 
 function resetBullet() {
@@ -58,7 +58,7 @@ function tick() {
     // GameManager.fps = parseInt(1000 / dt);
     // $('#divFPS').text("FPS: " + GameManager.fps);
     GameManager.bullets.update(dt);
-    GameManager.enemies.update(dt);
+    GameManager.dfdfdf.update(dt);
 
     setTimeout(tick, GameSetting.targetFPS);
 }

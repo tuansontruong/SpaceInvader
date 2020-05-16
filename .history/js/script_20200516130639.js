@@ -58,7 +58,6 @@ function tick() {
     // GameManager.fps = parseInt(1000 / dt);
     // $('#divFPS').text("FPS: " + GameManager.fps);
     GameManager.bullets.update(dt);
-    GameManager.enemies.update(dt);
 
     setTimeout(tick, GameSetting.targetFPS);
 }

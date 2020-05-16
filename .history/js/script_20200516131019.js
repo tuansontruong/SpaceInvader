@@ -1,5 +1,5 @@
 function resetEnemies() {
-    GameManager.enemies = new EnemyCollection(GameManager.player);
+    GameManager.dfdfdf = new EnemyCollection(GameManager.player);
 }
 
 function resetBullet() {

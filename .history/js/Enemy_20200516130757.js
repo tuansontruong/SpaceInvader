@@ -89,7 +89,7 @@ class EnemyCollection {
 
     killAll() {
         for (let i = 0; i < this.listEnemies.length; ++i) {
-            this.listEnemies[i].remove();
+            this.listEnemies[i].killMe();
         }
     }
 

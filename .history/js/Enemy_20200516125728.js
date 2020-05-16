@@ -1,7 +1,7 @@
 class Enemy extends Sprite {
     constructor(divName, assetDesc, player, sequence) {
         super(divName, new Point(0, 0), assetDesc.fileName, new Size(assetDesc.width, assetDesc.height));
-        this.state = GameSetting.enemyState.ready;
+        this.state = GameSettings.enemyState.ready;
         this.waypointList = [];
         this.targetWayPointNumber = 0;
         this.targetWayPoint = new Waypoint(0, 0, 0, 0);
@@ -29,7 +29,7 @@ class Enemy extends Sprite {
 
     update(dt) {
         switch (this.state) {
-            case GameSetting.enemyState.movingToWaypoint:
+            case GameSettings.enemyState.movingToWaypoint:
                 this.moveTowardPoint(dt);
                 break;
         }
@@ -59,7 +59,7 @@ class Enemy extends Sprite {
     }
 
     remove() {
-        this.state = GameSetting.enemyState.dead;
+        this.state = GameSettings.enemyState.dead;
         this.removeFromBoard();
     }
 
@@ -72,7 +72,7 @@ class Enemy extends Sprite {
 
         this.targetWayPointNumber = 1;
         this.targetWayPoint = this.waypointList[this.targetWayPointNumber];
-        this.state = GameSetting.enemyState.movingToWaypoint;
+        this.state = GameSettings.enemyState.movingToWaypoint;
     }
 }
 
@@ -89,7 +89,7 @@ class EnemyCollection {
 
     killAll() {
         for (let i = 0; i < this.listEnemies.length; ++i) {
-            this.listEnemies[i].remove();
+            this.listEnemies[i].killMe();
         }
     }
 
@@ -101,7 +101,7 @@ class EnemyCollection {
         }
 
         for (let i = this.listEnemies.length - 1; i >= 0; --i) {
-            if (this.listEnemies[i].state == GameSetting.enemyState.dead) {
+            if (this.listEnemies[i].state == GameSettings.enemyState.dead) {
                 this.listEnemies.splice(i, 1);
             } else {
                 this.listEnemies[i].update(dt);
@@ -119,6 +119,7 @@ class EnemyCollection {
     }
 
     addEnemy() {
+        // add a new enemy withe the sequence data
         let seq = EnemySequences[this.sequenceIndex];
         let en_new = new Enemy('en_' + this.count, GameManager.assets[seq.image],
             this.player, seq);
@@ -129,6 +130,7 @@ class EnemyCollection {
         this.lastAdded = 0;
         if (this.sequenceIndex == EnemySequences.length) {
             this.sequencesDone = true;
+            console.log('seuences done');
         }
     }
 }
