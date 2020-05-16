@@ -113,7 +113,7 @@ let GameManager = {
     player: undefined,
     bullets: undefined,
     enemies: undefined,
-    explosions: undefined,
+    explosion: undefined,
     phase: GameSetting.gamePhase.ready,
     lastUpdated: Date.now(),
     elapsedTime: 0,

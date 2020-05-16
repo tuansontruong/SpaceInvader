@@ -6,7 +6,7 @@ const ImageFiles = {
     'frame0001': { width: 128, height: 128 },
     'frame0002': { width: 128, height: 128 },
     'frame0003': { width: 128, height: 128 },
-    'frame0004': { width: 128, height: 128 },
+    'frame0004wewerwe': { width: 128, height: 128 },
     'frame0005': { width: 128, height: 128 },
     'frame0006': { width: 128, height: 128 },
     'frame0007': { width: 128, height: 128 },

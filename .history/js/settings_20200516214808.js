@@ -15,7 +15,7 @@ const ImageFiles = {
     'frame0010': { width: 128, height: 128 },
     'frame0011': { width: 128, height: 128 },
     'frame0012': { width: 128, height: 128 },
-    'frame0013': { width: 128, height: 128 }
+    'frame0013': { width: 128, height: 128 },
 };
 
 
@@ -102,8 +102,7 @@ const GameSetting = {
     },
 
     countdownGap: 700,
-    countDownValues: ['2', '1', 'GO!'],
-    explosionTimeout: 1000
+    countDownValues: ['2', '1', 'GO!']
 
 
 };
@@ -113,7 +112,6 @@ let GameManager = {
     player: undefined,
     bullets: undefined,
     enemies: undefined,
-    explosions: undefined,
     phase: GameSetting.gamePhase.ready,
     lastUpdated: Date.now(),
     elapsedTime: 0,

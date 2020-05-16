@@ -37,14 +37,13 @@ function render() {
             fileName: 'img/' + key + '.png'
         }
     }
-    console.log(GameManager.assets)
 }
 
 function initEnemies() {
     if (GameManager.enemies) {
         GameManager.enemies.reset();
     } else {
-        GameManager.enemies = new EnemyCollection(GameManager.player, GameManager.bullets, GameManager.explosions);
+        GameManager.enemies = new EnemyCollection(GameManager.player, GameManager.bullets);
     }
 }
 

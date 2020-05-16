@@ -1,5 +1,5 @@
 const ImageFiles = {
-    'Ship3': { width: 128, height: 128 },
+    'Ship3dcd': { width: 128, height: 128 },
     'shot3_asset': { width: 64, height: 64 },
     'enemy': { width: 64, height: 64 },
     'frame0000': { width: 128, height: 128 },

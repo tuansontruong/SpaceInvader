@@ -134,7 +134,7 @@ class EnemyCollection {
                         if (enemy.lives <= 0) {
                             this.player.incrementScore(enemy.score);
                             enemy.remove();
-                            let cp = enemy.getCenterPoint();
+                            let cp = en.getCenterPoint();
                             this.explosions.createExplosion(new Point(cp.x, cp.y));
                         }
                     }

@@ -11,8 +11,6 @@ body {
 }
 
 #playArea {
-    background-image: url(https://noobtuts.com/content/unity/2d-space-shooter-game/background_scrolling.gif);
-    /* background-image: url(https://media1.giphy.com/media/DzsqVikYdMZKo/source.gif); */
     position: relative;
     width: 720px;
     height: 576px;
@@ -99,8 +97,6 @@ body {
     }
 } */
 
-
-/* 
 .explosion {
     width: 100px;
     height: 100px;
@@ -111,4 +107,4 @@ body {
     animation-duration: 0.5s;
     background-repeat: no-repeat;
     z-index: 20;
-} */
+}

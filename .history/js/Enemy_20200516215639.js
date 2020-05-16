@@ -97,7 +97,6 @@ class EnemyCollection {
         this.count = 0;
         this.player = player;
         this.bullets = bullets;
-        this.explosions = explosions;
     }
 
     reset() {
@@ -135,7 +134,7 @@ class EnemyCollection {
                             this.player.incrementScore(enemy.score);
                             enemy.remove();
                             let cp = enemy.getCenterPoint();
-                            this.explosions.createExplosion(new Point(cp.x, cp.y));
+                            this.explosions.createExplosion(new Point(cp.x, xp.y))
                         }
                     }
                 }

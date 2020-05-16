@@ -37,7 +37,6 @@ function render() {
             fileName: 'img/' + key + '.png'
         }
     }
-    console.log(GameManager.assets)
 }
 
 function initEnemies() {

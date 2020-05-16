@@ -37,14 +37,13 @@ function render() {
             fileName: 'img/' + key + '.png'
         }
     }
-    console.log(GameManager.assets)
 }
 
 function initEnemies() {
     if (GameManager.enemies) {
         GameManager.enemies.reset();
     } else {
-        GameManager.enemies = new EnemyCollection(GameManager.player, GameManager.bullets, GameManager.explosions);
+        GameManager.enemies = new EnemyCollection(GameManager.player, GameManager.bullets);
     }
 }
 
@@ -70,13 +69,12 @@ function initPlayer() {
 }
 
 function initExplosions() {
-    GameManager.explosions = new Explosions('frame0000');
+    GameManager.explosions = new Explosions('Explosion/explosion00_s');
 }
 
 function gameInit() {
     initPlayer();
     initBullet();
-    initExplosions();
     initEnemies();
 
     GameManager.phase = GameSetting.gamePhase.playing;

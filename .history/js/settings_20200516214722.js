@@ -2,20 +2,7 @@ const ImageFiles = {
     'Ship3': { width: 128, height: 128 },
     'shot3_asset': { width: 64, height: 64 },
     'enemy': { width: 64, height: 64 },
-    'frame0000': { width: 128, height: 128 },
-    'frame0001': { width: 128, height: 128 },
-    'frame0002': { width: 128, height: 128 },
-    'frame0003': { width: 128, height: 128 },
-    'frame0004': { width: 128, height: 128 },
-    'frame0005': { width: 128, height: 128 },
-    'frame0006': { width: 128, height: 128 },
-    'frame0007': { width: 128, height: 128 },
-    'frame0008': { width: 128, height: 128 },
-    'frame0009': { width: 128, height: 128 },
-    'frame0010': { width: 128, height: 128 },
-    'frame0011': { width: 128, height: 128 },
-    'frame0012': { width: 128, height: 128 },
-    'frame0013': { width: 128, height: 128 }
+    'frame0000': { width: 128, height: 128 }
 };
 
 
@@ -102,8 +89,7 @@ const GameSetting = {
     },
 
     countdownGap: 700,
-    countDownValues: ['2', '1', 'GO!'],
-    explosionTimeout: 1000
+    countDownValues: ['2', '1', 'GO!']
 
 
 };
@@ -113,7 +99,6 @@ let GameManager = {
     player: undefined,
     bullets: undefined,
     enemies: undefined,
-    explosions: undefined,
     phase: GameSetting.gamePhase.ready,
     lastUpdated: Date.now(),
     elapsedTime: 0,

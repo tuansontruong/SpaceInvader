@@ -135,7 +135,7 @@ class EnemyCollection {
                             this.player.incrementScore(enemy.score);
                             enemy.remove();
                             let cp = enemy.getCenterPoint();
-                            this.explosions.createExplosion(new Point(cp.x, cp.y));
+                            this.explosions.createExplosion(new Point(cp.x, xp.y))
                         }
                     }
                 }
