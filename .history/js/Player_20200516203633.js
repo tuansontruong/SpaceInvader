@@ -31,28 +31,40 @@ class Player extends Sprite {
     }
 
     update(dt) {
-        this.lasthit += dt;
+        switch (this.state) {
+            case GameSettings.playerState.hitFlashing:
+                this.lastFlash += dt;
+                if (this.lastFlash > GameSettings.playerFlashTime) {
+                    this.lastFlash = 0;
+                    this.numFlashes++;
+                    if (this.numFlashes == GameSettings.playerFlashes) {
+                        this.state = GameSettings.playerState.ok;
+                        $('#' + this.divName).show();
+                        this.hit = false;
+                        $('#' + this.divName).css({ 'opacity': '1.0' });
+                    } else {
+                        if (this.numFlashes % 2 == 1) {
+                            $('#' + this.divName).hide();
+                        } else {
+                            $('#' + this.divName).show();
+                        }
+                    }
+                }
+                break;
+        }
 
-        // player got hit
-        if (this.isHit && this.state !== GameSetting.playerState.hitFlashing) {
-            this.state = GameSetting.playerState.hitFlashing;
+        if (this.hit == true && this.state != GameSettings.playerState.hitFlashing) {
+            this.state = GameSettings.playerState.hitFlashing;
+            this.lastFlash = 0;
+            this.numFlashes = 0;
             this.lives--;
-            this.lasthit = 0;
             this.setLives();
+            console.log('player hit!!');
             if (this.lives > 0) {
-                $('#' + this.divName).css({ 'opacity': '0.5' });
+                $('#' + this.divName).css({ 'opacity': GameSettings.playerFlashOpacity });
             }
         }
 
-        // set back to default
-        if (this.state === GameSetting.playerState.hitFlashing) {
-            if (this.lasthit > 2000) {
-                this.state = GameSetting.playerState.ok;
-                this.lasthit = 0;
-                this.isHit = false;
-                $('#' + this.divName).css({ 'opacity': '1.0' });
-            }
-        }
     }
 
     move(x, y) {

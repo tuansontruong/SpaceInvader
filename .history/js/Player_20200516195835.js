@@ -30,29 +30,26 @@ class Player extends Sprite {
         this.setHighScore();
     }
 
-    update(dt) {
+    update() {
         this.lasthit += dt;
 
-        // player got hit
-        if (this.isHit && this.state !== GameSetting.playerState.hitFlashing) {
-            this.state = GameSetting.playerState.hitFlashing;
+        if (this.lasthit > 2000) {
+
+        }
+
+        if (this.state === GameSetting.playerState.hitFlashing) {
             this.lives--;
-            this.lasthit = 0;
             this.setLives();
             if (this.lives > 0) {
                 $('#' + this.divName).css({ 'opacity': '0.5' });
             }
         }
+    }
 
-        // set back to default
-        if (this.state === GameSetting.playerState.hitFlashing) {
-            if (this.lasthit > 2000) {
-                this.state = GameSetting.playerState.ok;
-                this.lasthit = 0;
-                this.isHit = false;
-                $('#' + this.divName).css({ 'opacity': '1.0' });
-            }
-        }
+    flashAgain() {
+        this.state = GameSetting.playerState.ok;
+        this.lasthit = 0;
+        $('#' + this.divName).css({ 'opacity': '1.0' });
     }
 
     move(x, y) {

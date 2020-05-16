@@ -29,21 +29,47 @@ class Enemy extends Sprite {
 
     checkIfCollisionWithPlayer() {
         if (this.containingBox.IntersectedBy(this.player.containingBox)) {
-            if (!this.player.isHit) {
-                this.player.isHit = true;
+            if (this.player.hit == false) {
+                this.player.hit = true;
             }
-            // if (this.player.state == GameSetting.playerState.ok)
-            //     this.player.state = GameSetting.playerState.hitFlashing;
         }
     }
 
     update(dt) {
         switch (this.state) {
-            case GameSetting.enemyState.movingToWaypoint:
-                this.moveTowardPoint(dt);
-                this.checkIfCollisionWithPlayer();
+            case GameSettings.playerState.hitFlashing:
+                this.lastFlash += dt;
+                if (this.lastFlash > GameSettings.playerFlashTime) {
+                    this.lastFlash = 0;
+                    this.numFlashes++;
+                    if (this.numFlashes == GameSettings.playerFlashes) {
+                        this.state = GameSettings.playerState.ok;
+                        $('#' + this.divName).show();
+                        this.hit = false;
+                        $('#' + this.divName).css({ 'opacity': '1.0' });
+                    } else {
+                        if (this.numFlashes % 2 == 1) {
+                            $('#' + this.divName).hide();
+                        } else {
+                            $('#' + this.divName).show();
+                        }
+                    }
+                }
                 break;
         }
+
+        if (this.hit == true && this.state != GameSettings.playerState.hitFlashing) {
+            this.state = GameSettings.playerState.hitFlashing;
+            this.lastFlash = 0;
+            this.numFlashes = 0;
+            this.lives--;
+            this.setLives();
+            console.log('player hit!!');
+            if (this.lives > 0) {
+                $('#' + this.divName).css({ 'opacity': GameSettings.playerFlashOpacity });
+            }
+        }
+
     }
 
     moveTowardPoint(dt) {

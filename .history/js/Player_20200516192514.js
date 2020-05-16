@@ -5,9 +5,8 @@ class Player extends Sprite {
         this.score = 0;
         this.highScore = 0;
         this.state = GameSetting.playerState.ok;
-        this.boundaryRect = boundaryRect; //for boudary
+        this.boundaryRect = boundaryRect;
         this.isHit = false;
-        this.lasthit = 0;
         this.setLives();
         this.setScore();
         this.setHighScore();
@@ -30,29 +29,12 @@ class Player extends Sprite {
         this.setHighScore();
     }
 
-    update(dt) {
-        this.lasthit += dt;
-
-        // player got hit
-        if (this.isHit && this.state !== GameSetting.playerState.hitFlashing) {
-            this.state = GameSetting.playerState.hitFlashing;
-            this.lives--;
-            this.lasthit = 0;
-            this.setLives();
-            if (this.lives > 0) {
-                $('#' + this.divName).css({ 'opacity': '0.5' });
-            }
+    update() {
+        if (this.isHit) {
+            $('#' + this.divName).css({ 'opacity': '0.5' });
+            this.isHit = false;
         }
-
-        // set back to default
-        if (this.state === GameSetting.playerState.hitFlashing) {
-            if (this.lasthit > 2000) {
-                this.state = GameSetting.playerState.ok;
-                this.lasthit = 0;
-                this.isHit = false;
-                $('#' + this.divName).css({ 'opacity': '1.0' });
-            }
-        }
+        // $('#' + this.divName).css({ 'opacity': '1.0' });
     }
 
     move(x, y) {

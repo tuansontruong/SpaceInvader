@@ -56,7 +56,7 @@ const GameSetting = {
     FPS: 1000 / 60,
 
     bulletSpeed: 700 / 1000,
-    bulletLife: 4000,
+    bulletLife: 10000,
     bulletFireRate: 200,
     bulletTop: 10,
 
@@ -75,7 +75,7 @@ const GameSetting = {
         dead: 1,
         hitFlashing: 2
     },
-    playerMoveStep: 50,
+    playerMoveStep: 8,
     enemyState: {
         ready: 1,
         dead: 0,

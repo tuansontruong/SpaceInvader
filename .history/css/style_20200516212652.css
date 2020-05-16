@@ -126,15 +126,12 @@ body {
     }
     70% {
         background-image: url("../img/frame0011.png");
-        opacity: 0.9;
     }
     77% {
         background-image: url("../img/frame0012.png");
-        opacity: 0.8;
     }
     84% {
         background-image: url("../img/frame0013.png");
-        opacity: 0.5;
     }
 }
 

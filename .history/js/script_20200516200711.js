@@ -94,6 +94,9 @@ function update() {
     if (GameManager.enemies.gameOver || GameManager.player.lives <= 0) {
         showGameOver();
     } else {
+        if () {
+            showGameOver();
+        }
         GameManager.bullets.update(dt);
         GameManager.player.update(dt);
         setTimeout(update, GameSetting.FPS);

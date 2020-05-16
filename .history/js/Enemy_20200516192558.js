@@ -31,9 +31,9 @@ class Enemy extends Sprite {
         if (this.containingBox.IntersectedBy(this.player.containingBox)) {
             if (!this.player.isHit) {
                 this.player.isHit = true;
+            } else {
+                $('#' + this.player.divName).css({ 'opacity': '1.0' });
             }
-            // if (this.player.state == GameSetting.playerState.ok)
-            //     this.player.state = GameSetting.playerState.hitFlashing;
         }
     }
 

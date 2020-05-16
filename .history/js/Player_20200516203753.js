@@ -37,7 +37,6 @@ class Player extends Sprite {
         if (this.isHit && this.state !== GameSetting.playerState.hitFlashing) {
             this.state = GameSetting.playerState.hitFlashing;
             this.lives--;
-            this.lasthit = 0;
             this.setLives();
             if (this.lives > 0) {
                 $('#' + this.divName).css({ 'opacity': '0.5' });

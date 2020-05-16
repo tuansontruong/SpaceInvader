@@ -32,8 +32,6 @@ class Enemy extends Sprite {
             if (!this.player.isHit) {
                 this.player.isHit = true;
             }
-            // if (this.player.state == GameSetting.playerState.ok)
-            //     this.player.state = GameSetting.playerState.hitFlashing;
         }
     }
 

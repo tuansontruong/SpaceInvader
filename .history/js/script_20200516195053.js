@@ -91,7 +91,7 @@ function update() {
     GameManager.enemies.update(dt);
 
 
-    if (GameManager.enemies.gameOver || GameManager.player.lives <= 0) {
+    if (GameManager.enemies.gameOver) {
         showGameOver();
     } else {
         GameManager.bullets.update(dt);

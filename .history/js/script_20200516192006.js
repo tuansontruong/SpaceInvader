@@ -87,15 +87,13 @@ function update() {
     let now = Date.now();
     let dt = now - GameManager.lastUpdated;
     GameManager.lastUpdated = now;
-
+    GameManager.bullets.update(dt);
     GameManager.enemies.update(dt);
+    GameManager.player.update();
 
-
-    if (GameManager.enemies.gameOver || GameManager.player.lives <= 0) {
+    if (GameManager.enemies.gameOver) {
         showGameOver();
     } else {
-        GameManager.bullets.update(dt);
-        GameManager.player.update(dt);
         setTimeout(update, GameSetting.FPS);
     }
 }

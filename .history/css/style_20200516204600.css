@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+
+#playWindow {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#playArea {
+    position: relative;
+    width: 720px;
+    height: 576px;
+    border: solid green 2px;
+    overflow: hidden;
+}
+
+#scoreContainer {
+    left: 15px;
+    top: 15px;
+    position: absolute;
+    text-align: left;
+    z-index: 30;
+}
+
+.score {
+    padding: 10px;
+}
+
+.sprite {
+    position: absolute;
+    z-index: 10;
+}
+
+#messageContainer {
+    position: absolute;
+    top: 200px;
+    text-align: center;
+    width: 100%;
+    z-index: 40;
+}
+
+.message {
+    font-size: 3em;
+    padding: 20px;
+}
+
+@keyframes explosion {
+    0% {
+        background-image: url("../assets/Explosion/explosion00_s.png");
+    }
+    20% {
+        background-image: url("../assets/Explosion/explosion01_s.png");
+    }
+    40% {
+        background-image: url("../assets/Explosion/explosion02_s.png");
+    }
+    60% {
+        background-image: url("../assets/Explosion/explosion03_s.png");
+        opacity: 0.9;
+    }
+    80% {
+        background-image: url("../assets/Explosion/explosion04_s.png");
+        opacity: 0.8;
+    }
+    100% {
+        background-image: url("../assets/Explosion/explosion05_s.png");
+        opacity: 0.5;
+    }
+}
+
+.explosion {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 500px;
+    top: 300px;
+    animation-name: explosion;
+    animation-duration: 0.5s;
+    background-repeat: no-repeat;
+    z-index: 20;
+}

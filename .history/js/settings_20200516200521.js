@@ -75,7 +75,7 @@ const GameSetting = {
         dead: 1,
         hitFlashing: 2
     },
-    playerMoveStep: 50,
+    playerMoveStep: 8,
     enemyState: {
         ready: 1,
         dead: 0,

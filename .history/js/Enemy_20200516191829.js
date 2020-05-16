@@ -29,11 +29,9 @@ class Enemy extends Sprite {
 
     checkIfCollisionWithPlayer() {
         if (this.containingBox.IntersectedBy(this.player.containingBox)) {
-            if (!this.player.isHit) {
+            if (this.player.isHit == false) {
                 this.player.isHit = true;
             }
-            // if (this.player.state == GameSetting.playerState.ok)
-            //     this.player.state = GameSetting.playerState.hitFlashing;
         }
     }
 
