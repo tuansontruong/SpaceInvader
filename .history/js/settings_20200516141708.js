@@ -44,7 +44,7 @@ let EnemySequences = [];
 
 
 const GameSetting = {
-    keyPress: {
+    keyPresses: {
         left: 37,
         right: 39,
         up: 38,
@@ -56,7 +56,6 @@ const GameSetting = {
     bulletSpeed: 700 / 1000,
     bulletLife: 4000,
     bulletFireRate: 200,
-    bulletTop: 10,
 
     playAreaWidth: 720,
     playAreaHeight: 576,
@@ -99,7 +98,7 @@ let GameManager = {
     player: undefined,
     bullets: undefined,
     enemies: undefined,
-    phase: GameSetting.gamePhase.readyToplay,
+    phase: GameSetting.gamePhase.gameOver,
     lastUpdated: Date.now(),
     elapsedTime: 0,
     fps: 0,

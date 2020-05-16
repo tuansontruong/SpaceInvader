@@ -17,12 +17,10 @@ function resetPlayer() {
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
             new Rect(45, 45, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 100));
-        GameManager.player.addToBoard(1);
     }
-
+    GameManager.player.addToBoard(1);
     console.log('resetPlayer()', GameManager.player);
     GameManager.player.reset();
-
 }
 
 function resetGame() {
@@ -52,7 +50,7 @@ function proccessAsset(indexNum) {
             proccessAsset(indexNum);
         } else {
             console.log("Assets Done:", GameManager.assets)
-            resetGame();
+                // resetGame();
         }
     }
 }
@@ -112,10 +110,11 @@ function showGameOver() {
 $(function() {
     proccessAsset(0);
     setUpSequences();
+    writeMessage("Press Space to Continue")
     $(document).keydown(
         function(e) {
             if (GameManager.phase == GameSetting.gamePhase.readyToplay) {
-                if (e.which == GameSetting.keyPress.space) {
+                if (e.which == GameSettings.keyPress.space) {
                     runCountDown();
                 }
             } else if (GameManager.phase == GameSetting.gamePhase.playing) {
@@ -134,7 +133,7 @@ $(function() {
                         break;
                 }
             } else if (GameManager.phase == GameSetting.gameOver) {
-                if (e.which == GameSetting.keyPress.space) {
+                if (e.which == GameSettings.keyPress.space) {
                     resetGame();
                 }
             }

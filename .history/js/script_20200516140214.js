@@ -17,24 +17,17 @@ function resetPlayer() {
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
             new Rect(45, 45, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 100));
-        GameManager.player.addToBoard(1);
     }
-
+    GameManager.player.addToBoard(1);
     console.log('resetPlayer()', GameManager.player);
     GameManager.player.reset();
-
 }
 
 function resetGame() {
     resetPlayer();
     resetBullet();
     resetEnemies();
-
-    GameManager.phase = GameSetting.gamePhase.readyToplay;
-    GameManager.lastUpdated = Date.now();
-    GameManager.elapsedTime = 0;
-
-    writeMessage('Press Space To Start');
+    runCountDown();
 }
 
 function proccessAsset(indexNum) {
@@ -52,7 +45,7 @@ function proccessAsset(indexNum) {
             proccessAsset(indexNum);
         } else {
             console.log("Assets Done:", GameManager.assets)
-            resetGame();
+                // resetGame();
         }
     }
 }
@@ -66,11 +59,7 @@ function tick() {
     GameManager.bullets.update(dt);
     GameManager.enemies.update(dt);
 
-    if (GameManager.enemies.gameOver) {
-        showGameOver();
-    } else {
-        setTimeout(tick, GameSetting.targetFPS);
-    }
+    setTimeout(tick, GameSetting.targetFPS);
 }
 
 function endCountDown() {
@@ -103,40 +92,35 @@ function writeMessage(text) {
 }
 
 function showGameOver() {
-    GameManager.phase = GameSetting.gameOver;
+    GameManager.phase = GameSettings.gameOver;
+
     writeMessage('Game Over');
-    setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSetting.pressSpaceDelay);
+    setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSettings.pressSpaceDelay);
 
 }
 
 $(function() {
     proccessAsset(0);
     setUpSequences();
+    writeMessage("Press Space to Continue")
     $(document).keydown(
         function(e) {
-            if (GameManager.phase == GameSetting.gamePhase.readyToplay) {
-                if (e.which == GameSetting.keyPress.space) {
-                    runCountDown();
-                }
-            } else if (GameManager.phase == GameSetting.gamePhase.playing) {
-                switch (e.which) {
-                    case GameSetting.keyPress.up:
-                        GameManager.player.move(0, -1);
-                        break;
-                    case GameSetting.keyPress.down:
-                        GameManager.player.move(0, 1);
-                        break;
-                    case GameSetting.keyPress.left:
-                        GameManager.player.move(-1, 0);
-                        break;
-                    case GameSetting.keyPress.right:
-                        GameManager.player.move(1, 0);
-                        break;
-                }
-            } else if (GameManager.phase == GameSetting.gameOver) {
-                if (e.which == GameSetting.keyPress.space) {
+            switch (e.which) {
+                case GameSetting.keyPresses.up:
+                    GameManager.player.move(0, -1);
+                    break;
+                case GameSetting.keyPresses.down:
+                    GameManager.player.move(0, 1);
+                    break;
+                case GameSetting.keyPresses.left:
+                    GameManager.player.move(-1, 0);
+                    break;
+                case GameSetting.keyPresses.right:
+                    GameManager.player.move(1, 0);
+                    break;
+                case GameSetting.keyPresses.space:
                     resetGame();
-                }
+                    break;
             }
         }
     );

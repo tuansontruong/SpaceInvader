@@ -31,9 +31,11 @@ class Rect {
         }
     }
     IntersectedBy(rect) {
+
         if (this.origin.x > rect.max.x || rect.origin.x > this.max.x) {
             return false;
         }
+
         if (this.origin.y > rect.max.y || rect.origin.y > this.max.y) {
             return false;
         }

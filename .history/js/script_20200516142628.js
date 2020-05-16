@@ -17,24 +17,17 @@ function resetPlayer() {
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
             new Rect(45, 45, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 100));
-        GameManager.player.addToBoard(1);
     }
-
+    GameManager.player.addToBoard(1);
     console.log('resetPlayer()', GameManager.player);
     GameManager.player.reset();
-
 }
 
 function resetGame() {
     resetPlayer();
     resetBullet();
     resetEnemies();
-
-    GameManager.phase = GameSetting.gamePhase.readyToplay;
-    GameManager.lastUpdated = Date.now();
-    GameManager.elapsedTime = 0;
-
-    writeMessage('Press Space To Start');
+    runCountDown();
 }
 
 function proccessAsset(indexNum) {
@@ -52,7 +45,7 @@ function proccessAsset(indexNum) {
             proccessAsset(indexNum);
         } else {
             console.log("Assets Done:", GameManager.assets)
-            resetGame();
+                // resetGame();
         }
     }
 }
@@ -112,29 +105,30 @@ function showGameOver() {
 $(function() {
     proccessAsset(0);
     setUpSequences();
+    writeMessage("Press Space to Continue")
     $(document).keydown(
         function(e) {
-            if (GameManager.phase == GameSetting.gamePhase.readyToplay) {
-                if (e.which == GameSetting.keyPress.space) {
+            if (GameManager.phase == GameSettings.gamePhase.readyToplay) {
+                if (e.which == GameSettings.keyPress.space) {
                     runCountDown();
                 }
-            } else if (GameManager.phase == GameSetting.gamePhase.playing) {
+            } else if (GameManager.phase == GameSettings.gamePhase.playing) {
                 switch (e.which) {
-                    case GameSetting.keyPress.up:
+                    case GameSettings.keyPress.up:
                         GameManager.player.move(0, -1);
                         break;
-                    case GameSetting.keyPress.down:
+                    case GameSettings.keyPress.down:
                         GameManager.player.move(0, 1);
                         break;
-                    case GameSetting.keyPress.left:
+                    case GameSettings.keyPress.left:
                         GameManager.player.move(-1, 0);
                         break;
-                    case GameSetting.keyPress.right:
+                    case GameSettings.keyPress.right:
                         GameManager.player.move(1, 0);
                         break;
                 }
-            } else if (GameManager.phase == GameSetting.gameOver) {
-                if (e.which == GameSetting.keyPress.space) {
+            } else if (GameManager.phase == GameSettings.gameOver) {
+                if (e.which == GameSettings.keyPress.space) {
                     resetGame();
                 }
             }

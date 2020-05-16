@@ -11,18 +11,16 @@ function resetBullet() {
 }
 
 function resetPlayer() {
-    if (!GameManager.player) {
+    if (GameManager.player == undefined) {
         let asset = GameManager.assets['Ship3'];
         GameManager.player = new Player(GameSetting.playerDivName,
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
             new Rect(45, 45, GameSetting.playAreaWidth - 80, GameSetting.playAreaHeight - 100));
-        GameManager.player.addToBoard(1);
     }
-
+    GameManager.player.addToBoard(1);
     console.log('resetPlayer()', GameManager.player);
     GameManager.player.reset();
-
 }
 
 function resetGame() {
