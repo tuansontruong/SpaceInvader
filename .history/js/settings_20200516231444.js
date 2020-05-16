@@ -84,7 +84,7 @@ const GameSetting = {
         playing: 3,
         gameOver: 4
     },
-    explosionTimeout: 500
+    explosionTimeout: 2000
 
 
 };

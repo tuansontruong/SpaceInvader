@@ -14,7 +14,6 @@ class Player extends Sprite {
     }
 
     reset() {
-        $('#' + this.divName).css({ 'opacity': '1.0' });
         this.lives = GameSetting.playerStartLives;
         this.score = 0;
         this.isHit = false;
@@ -46,7 +45,7 @@ class Player extends Sprite {
         this.lasthit += dt;
         // set back to default
         if (this.state === GameSetting.playerState.hitFlashing) {
-            if (this.lasthit > 2000) {
+            if (this.lasthit > 3000) {
                 this.state = GameSetting.playerState.ok;
                 this.lasthit = 0;
                 this.isHit = false;

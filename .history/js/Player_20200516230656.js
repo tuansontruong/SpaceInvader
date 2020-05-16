@@ -14,7 +14,6 @@ class Player extends Sprite {
     }
 
     reset() {
-        $('#' + this.divName).css({ 'opacity': '1.0' });
         this.lives = GameSetting.playerStartLives;
         this.score = 0;
         this.isHit = false;

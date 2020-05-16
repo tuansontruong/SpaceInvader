@@ -54,7 +54,7 @@ class Sprite {
     }
 
     getCenterPoint() {
-        return new Point(this.position.x,
-            this.position.y);
+        return new Point(this.anchorShift.x,
+            this.anchorShift.y);
     }
 }
