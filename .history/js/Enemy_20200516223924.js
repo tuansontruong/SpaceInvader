@@ -141,7 +141,7 @@ class EnemyCollection {
                             $('#explosion').css("top", cp.y);
 
                             setTimeout(function() {
-                                $('#explosion').css("display", "none");
+                                $('#explosion').remove();
                             }, GameSetting.explosionTimeout);
                         }
                     }

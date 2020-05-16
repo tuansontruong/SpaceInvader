@@ -30,7 +30,6 @@ $(function() {
 });
 
 function render() {
-    // $('#explosion').empty();
     for (let key in ImageFiles) {
         GameManager.assets[key] = {
             width: ImageFiles[key].width,
@@ -70,9 +69,9 @@ function initPlayer() {
     }
 }
 
-// function initExplosions() {
-//     GameManager.explosions = new Explosions('frame0000');
-// }
+function initExplosions() {
+    GameManager.explosions = new Explosions('frame0000');
+}
 
 function gameInit() {
     initPlayer();

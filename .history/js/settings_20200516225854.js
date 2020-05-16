@@ -79,11 +79,16 @@ const GameSetting = {
         dead: 0,
         movingToWaypoint: 2
     },
+
+    pressSpaceDelay: 3000,
     gamePhase: {
         ready: 1,
         playing: 3,
         gameOver: 4
     },
+
+    countdownGap: 700,
+    countDownValues: ['2', '1', 'GO!'],
     explosionTimeout: 1000
 
 

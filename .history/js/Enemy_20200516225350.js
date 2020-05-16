@@ -135,14 +135,14 @@ class EnemyCollection {
                             this.player.incrementScore(enemy.score);
                             enemy.remove();
                             let cp = enemy.getCenterPoint();
-                            // this.explosions.createExplosion(new Point(cp.x, cp.y));
-                            $('#explosion').css("display", "block");
-                            $('#explosion').css("left", cp.x);
-                            $('#explosion').css("top", cp.y);
+                            this.explosions.createExplosion(new Point(cp.x, cp.y));
+                            // $('#explosion').css("display", "block");
+                            // $('#explosion').css("left", cp.x);
+                            // $('#explosion').css("top", cp.y);
 
-                            setTimeout(function() {
-                                $('#explosion').css("display", "none");
-                            }, GameSetting.explosionTimeout);
+                            // setTimeout(function() {
+                            //     $('#explosion').css("display", "none");
+                            // }, GameSetting.explosionTimeout);
                         }
                     }
                 }

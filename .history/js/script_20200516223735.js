@@ -70,9 +70,9 @@ function initPlayer() {
     }
 }
 
-// function initExplosions() {
-//     GameManager.explosions = new Explosions('frame0000');
-// }
+function initExplosions() {
+    GameManager.explosions = new Explosions('frame0000');
+}
 
 function gameInit() {
     initPlayer();

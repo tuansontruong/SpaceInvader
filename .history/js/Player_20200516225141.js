@@ -46,13 +46,13 @@ class Player extends Sprite {
 
         // set back to default
         if (this.state === GameSetting.playerState.hitFlashing) {
-            if (this.lasthit > 3000) {
+            if (this.lasthit > 2000) {
                 this.state = GameSetting.playerState.ok;
                 this.lasthit = 0;
                 this.isHit = false;
                 $('#' + this.divName).css({ 'opacity': '1.0' });
             }
-
+            $('#' + this.divName).css({ 'opacity': '1.0' });
         }
     }
 

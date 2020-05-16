@@ -139,10 +139,6 @@ class EnemyCollection {
                             $('#explosion').css("display", "block");
                             $('#explosion').css("left", cp.x);
                             $('#explosion').css("top", cp.y);
-
-                            setTimeout(function() {
-                                $('#explosion').css("display", "none");
-                            }, GameSetting.explosionTimeout);
                         }
                     }
                 }
