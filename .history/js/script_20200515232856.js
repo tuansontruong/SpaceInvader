@@ -50,7 +50,7 @@ function tick() {
     let now = Date.now();
     let dt = now - GameManager.lastUpdated;
     GameManager.lastUpdated = now;
-    // GameManager.fps = parseInt(1000 / dt);
+    GameManager.fps = parseInt(1000 / dt);
 
     $('#divFPS').text("FPS: " + GameManager.fps);
 

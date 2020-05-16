@@ -44,15 +44,14 @@ class BulletCollection {
         for (let i = this.listBullets.length - 1; i >= 0; --i) {
             if (this.listBullets[i].dead == true) {
                 this.listBullets.splice(i, 1);
-
             } else {
+                console.log("aaa");
                 this.listBullets[i].update(dt);
             }
         }
         this.lastAdded += dt;
 
         if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {
-
             this.lastAdded = 0;
             this.listBullets.push(
                 new Bullet(

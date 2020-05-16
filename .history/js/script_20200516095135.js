@@ -56,7 +56,7 @@ function tick() {
 
     GameManager.bullets.update(dt);
 
-    setTimeout(tick, GameSetting.targetFPS);
+    // setTimeout(tick, GameSetting.targetFPS);
 }
 
 $(function() {

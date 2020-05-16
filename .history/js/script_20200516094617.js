@@ -47,16 +47,16 @@ function proccessAsset(indexNum) {
 }
 
 function tick() {
-    let now = Date.now();
-    let dt = now - GameManager.lastUpdated;
-    GameManager.lastUpdated = now;
+    // let now = Date.now();
+    // let dt = now - GameManager.lastUpdated;
+    // GameManager.lastUpdated = now;
     // GameManager.fps = parseInt(1000 / dt);
 
-    $('#divFPS').text("FPS: " + GameManager.fps);
+    // $('#divFPS').text("FPS: " + GameManager.fps);
 
     GameManager.bullets.update(dt);
 
-    setTimeout(tick, GameSetting.targetFPS);
+    setTimeout(tick, 1000);
 }
 
 $(function() {

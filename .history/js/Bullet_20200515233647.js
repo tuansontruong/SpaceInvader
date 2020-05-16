@@ -46,6 +46,7 @@ class BulletCollection {
                 this.listBullets.splice(i, 1);
 
             } else {
+                console.log("aaa");
                 this.listBullets[i].update(dt);
             }
         }

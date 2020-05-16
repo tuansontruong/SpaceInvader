@@ -45,24 +45,24 @@ class BulletCollection {
             if (this.listBullets[i].dead == true) {
                 this.listBullets.splice(i, 1);
 
-            } else {
-                this.listBullets[i].update(dt);
+                // } else {
+                //     this.listBullets[i].update(dt);
+                // }
+            }
+            this.lastAdded += dt;
+
+            if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {
+
+                this.lastAdded = 0;
+                this.listBullets.push(
+                    new Bullet(
+                        'bullet_' + this.total_bullets,
+                        GameManager.assets['shot3_asset'],
+                        new Point(this.player.position.x + (this.player.size.width / 2),
+                            this.player.position.y)
+                    )
+                );
+                this.total_bullets++;
             }
         }
-        this.lastAdded += dt;
-
-        if (this.lastAdded > GameSetting.bulletFireRate && this.player.state != GameSetting.playerState.hitFlashing) {
-
-            this.lastAdded = 0;
-            this.listBullets.push(
-                new Bullet(
-                    'bullet_' + this.total_bullets,
-                    GameManager.assets['shot3_asset'],
-                    new Point(this.player.position.x + (this.player.size.width / 2),
-                        this.player.position.y)
-                )
-            );
-            this.total_bullets++;
-        }
     }
-}
