@@ -94,6 +94,10 @@ function initPlayer() {
     }
 }
 
+// function initExplosions() {
+//     GameManager.explosions = new Explosions('frame0000');
+// }
+
 function gameInit() {
     initPlayer();
     initBullet();
@@ -154,6 +158,7 @@ function updateDashboard() {
         if (i == 3) {
             return;
         }
+
         let text = '<div class="row score"><div class="col col-sm-4" id="medal"><img src="img/' + ++i + '.png" width=64 height=64></div><div class="col col-sm-8" id="name">' + element.user + ": " + element.highScore + '</div></div>'
         $("#ranking").append(text);
     });

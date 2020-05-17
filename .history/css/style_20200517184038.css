@@ -36,7 +36,7 @@ body {
 
 #usernameTxt {
     color: coral;
-    text-align: left;
+    text-align: center;
     font-size: xxx-large;
 }
 
@@ -65,7 +65,6 @@ body {
 #ranking #highScoreTitle {
     display: flex;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .sprite {

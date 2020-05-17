@@ -1,7 +1,4 @@
-let myLocalStorage;
 $(function() {
-    myLocalStorage = new MyLocalStorage("userInfo");
-    updateDashboard();
     writeMessage('Press Space To Start');
     render();
     setUpSequences();
@@ -94,6 +91,10 @@ function initPlayer() {
     }
 }
 
+// function initExplosions() {
+//     GameManager.explosions = new Explosions('frame0000');
+// }
+
 function gameInit() {
     initPlayer();
     initBullet();
@@ -128,35 +129,9 @@ function update() {
 }
 
 function checkLocalStorage() {
-    if (!myLocalStorage.getItem()) {
-        let userInfo = {
-            currentUser: { user: "TTS", highScore: 21 },
-            gameHistory: [
-                { user: "Justin Bieber", highScore: 700 },
-                { user: "Shawn Mendes", highScore: 1000 },
-                { user: "Selena Gomez", highScore: 500 }
-            ]
-        }
-        myLocalStorage.setItem(userInfo);
+    if (!localStorage.getItem("userInfo")) {
+        alert("meo");
     }
-
-    updateDashboard();
-
-}
-
-function updateDashboard() {
-    let gameHistory = myLocalStorage.getItem().gameHistory;
-    gameHistory.sort((a, b) => (a.highScore > b.highScore) ? -1 : 1);
-    $("#ranking").empty();
-    let text = '<div class="row score" id="highScoreTitle"><h1>High Scores</h1></div>'
-    $("#ranking").append(text);
-    gameHistory.forEach((element, i) => {
-        if (i == 3) {
-            return;
-        }
-        let text = '<div class="row score"><div class="col col-sm-4" id="medal"><img src="img/' + ++i + '.png" width=64 height=64></div><div class="col col-sm-8" id="name">' + element.user + ": " + element.highScore + '</div></div>'
-        $("#ranking").append(text);
-    });
 }
 
 function clearMessages() {

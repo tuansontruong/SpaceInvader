@@ -1,7 +1,6 @@
 let myLocalStorage;
 $(function() {
     myLocalStorage = new MyLocalStorage("userInfo");
-    updateDashboard();
     writeMessage('Press Space To Start');
     render();
     setUpSequences();
@@ -94,6 +93,10 @@ function initPlayer() {
     }
 }
 
+// function initExplosions() {
+//     GameManager.explosions = new Explosions('frame0000');
+// }
+
 function gameInit() {
     initPlayer();
     initBullet();
@@ -146,16 +149,27 @@ function checkLocalStorage() {
 
 function updateDashboard() {
     let gameHistory = myLocalStorage.getItem().gameHistory;
-    gameHistory.sort((a, b) => (a.highScore > b.highScore) ? -1 : 1);
-    $("#ranking").empty();
-    let text = '<div class="row score" id="highScoreTitle"><h1>High Scores</h1></div>'
-    $("#ranking").append(text);
+    gameHistory.sort((a, b) => (a.highScore > b.highScore) ? 1 : -1);
+    let ranking = $("ranking");
     gameHistory.forEach((element, i) => {
+        alert(i)
         if (i == 3) {
             return;
         }
-        let text = '<div class="row score"><div class="col col-sm-4" id="medal"><img src="img/' + ++i + '.png" width=64 height=64></div><div class="col col-sm-8" id="name">' + element.user + ": " + element.highScore + '</div></div>'
-        $("#ranking").append(text);
+
+        let text = '<div><img src="img/' + +i + '.png" width=64 height=64>' + element.user + ": " + element.highScore + '</div>'
+            // var p = document.createElement("div");
+            // p.className = "mt-3 mx-4";
+            // var img = document.createElement("img")
+            // img.src = "img/" + ++i + ".png";
+            // img.width = 64;
+            // img.height = 64;
+            // var textnode = document.createTextNode(element.user + ": " + element.highScore);
+            // p.appendChild(img);
+            // p.appendChild(textnode);
+            // var hr = document.createElement("hr");
+            // ranking.append(p);
+        ranking.append(text);
     });
 }
 
