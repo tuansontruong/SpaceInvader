@@ -6,6 +6,21 @@ const ImageFiles = {
 
 
 const WayPoints = {
+    STREAM60: [{
+            rotation: 0,
+            x: 60,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 60,
+            y: 620,
+            dir_x: 0,
+            dir_y: 1
+        }
+    ],
     STREAM300: [{
             rotation: 0,
             x: 300,
@@ -109,6 +124,89 @@ const WayPoints = {
             y: 128,
             dir_x: -1,
             dir_y: 0
+        }
+    ],
+
+    INLEFTTURNDOWN: [{
+            rotation: 0,
+            x: -90,
+            y: 256,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 480,
+            y: 256,
+            dir_x: 1,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 480,
+            y: 620,
+            dir_x: 0,
+            dir_y: 1
+        }
+    ],
+    INRIGHTTURNDOWN: [{
+            rotation: 0,
+            x: 810,
+            y: 256,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 240,
+            y: 256,
+            dir_x: -1,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 240,
+            y: 620,
+            dir_x: 0,
+            dir_y: 1
+        }
+    ],
+    INLEFTTURNUP: [{
+            x: -90,
+            y: 384,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            x: 480,
+            y: 384,
+            dir_x: 1,
+            dir_y: 0
+        },
+        {
+            x: 480,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    INRIGHTTURNUP: [{
+            x: 810,
+            y: 384,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            x: 240,
+            y: 384,
+            dir_x: -1,
+            dir_y: 0
+        },
+        {
+            x: 240,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
         }
     ],
     INLEFTDIAGUP: [{
