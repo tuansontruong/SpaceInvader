@@ -1,0 +1,135 @@
+body {
+    background-color: #212529 !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    color: white;
+    overflow: hidden;
+}
+
+
+/* #playWindow {
+    position: relative;
+    display: flex;
+    justify-content: center;
+} */
+
+#playArea {
+    background-image: url(https://noobtuts.com/content/unity/2d-space-shooter-game/background_scrolling.gif);
+    /* background-image: url(https://media1.giphy.com/media/DzsqVikYdMZKo/source.gif); */
+    position: relative;
+    min-width: 720px;
+    min-height: 685px;
+    border: 10px solid;
+    border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;
+    overflow: hidden;
+}
+
+#ranking {
+    text-align: center;
+    display: flex;
+    z-index: 30;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 490px;
+    font-size: xx-large;
+}
+
+#usernameTxt {
+    color: coral;
+    text-align: center;
+    font-size: xxx-large;
+}
+
+#scoreContainer {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    text-align: left;
+    font-size: 1.5em;
+    z-index: 30;
+    color: lightslategray;
+}
+
+.score {
+    padding: 10px;
+}
+
+.sprite {
+    position: absolute;
+    z-index: 10;
+}
+
+#messageContainer {
+    position: absolute;
+    top: 220px;
+    text-align: center;
+    width: 100%;
+    z-index: 40;
+    color: white;
+}
+
+.message {
+    font-size: 3em;
+    padding: 20px;
+}
+
+@keyframes explosion {
+    0% {
+        background-image: url("../img/frame0000.png");
+    }
+    7% {
+        background-image: url("../img/frame0001.png");
+    }
+    14% {
+        background-image: url("../img/frame0002.png");
+    }
+    21% {
+        background-image: url("../img/frame0003.png");
+    }
+    28% {
+        background-image: url("../img/frame0004.png");
+    }
+    35% {
+        background-image: url("../img/frame0005.png");
+    }
+    42% {
+        background-image: url("../img/frame0006.png");
+    }
+    49% {
+        background-image: url("../img/frame0007.png");
+    }
+    56% {
+        background-image: url("../img/frame0008.png");
+    }
+    56% {
+        background-image: url("../img/frame0009.png");
+    }
+    63% {
+        background-image: url("../img/frame0010.png");
+    }
+    70% {
+        background-image: url("../img/frame0011.png");
+        opacity: 0.9;
+    }
+    77% {
+        background-image: url("../img/frame0012.png");
+        opacity: 0.8;
+    }
+    84% {
+        background-image: url("../img/frame0013.png");
+        opacity: 0.5;
+    }
+}
+
+.explosion {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* left: 500px;
+    top: 300px; */
+    animation-name: explosion;
+    animation-duration: 0.7s;
+    background-repeat: no-repeat;
+    z-index: 20;
+    display: none;
+}
