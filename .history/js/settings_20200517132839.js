@@ -81,6 +81,28 @@ const WayPoints = {
             dir_y: 1
         }
     ],
+    // LEFTTORIGHTDEEP: [{
+    //         rotation: 0,
+    //         x: 60,
+    //         y: -90,
+    //         dir_x: 0,
+    //         dir_y: 0
+    //     },
+    //     {
+    //         rotation: 0,
+    //         x: 60,
+    //         y: 448,
+    //         dir_x: 0,
+    //         dir_y: 1
+    //     },
+    //     {
+    //         rotation: 0,
+    //         x: 810,
+    //         y: 448,
+    //         dir_x: 1,
+    //         dir_y: 0
+    //     }
+    // ],
     LEFTTORIGHTSHALLOW: [{
             rotation: 0,
             x: 60,
@@ -103,6 +125,29 @@ const WayPoints = {
             dir_y: 0
         }
     ],
+
+    // RIGHTTOLEFTDEEP: [{
+    //         rotation: 0,
+    //         x: 660,
+    //         y: -90,
+    //         dir_x: 0,
+    //         dir_y: 0
+    //     },
+    //     {
+    //         rotation: 0,
+    //         x: 660,
+    //         y: 448,
+    //         dir_x: 0,
+    //         dir_y: 1
+    //     },
+    //     {
+    //         rotation: 0,
+    //         x: -90,
+    //         y: 448,
+    //         dir_x: -1,
+    //         dir_y: 0
+    //     }
+    // ],
 
     RIGHTTOLEFTSHALLOW: [{
             rotation: 0,
@@ -259,6 +304,96 @@ const WayPoints = {
             dir_y: -1
         }
     ],
+    STREAMFROMB60: [{
+            rotation: 0,
+            x: 60,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 60,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB180: [{
+            rotation: 0,
+            x: 180,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 180,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB300: [{
+            rotation: 0,
+            x: 300,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 300,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB420: [{
+            rotation: 0,
+            x: 420,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 420,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB540: [{
+            rotation: 0,
+            x: 540,
+            y: 620,
+            dir_x: 0,
+            dir_y: -1
+        },
+        {
+            rotation: 0,
+            x: 540,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB660: [{
+            rotation: 0,
+            x: 660,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 660,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ]
 };
 
 let EnemySequences = [];
@@ -276,7 +411,7 @@ const GameSetting = {
 
     bulletSpeed: 700 / 1000,
     bulletLife: 4000,
-    bulletFireRate: 300,
+    bulletFireRate: 700,
     bulletTop: 10,
 
     playAreaWidth: 720,
@@ -286,7 +421,7 @@ const GameSetting = {
     playerDivName: 'playerSprite',
     playerStart: {
         x: 360,
-        y: 540,
+        y: 440,
     },
     playerStartLives: 3,
     playerState: {
@@ -294,7 +429,7 @@ const GameSetting = {
         dead: 1,
         hitFlashing: 2
     },
-    playerMoveStep: 40,
+    playerMoveStep: 30,
     enemyState: {
         ready: 1,
         dead: 0,

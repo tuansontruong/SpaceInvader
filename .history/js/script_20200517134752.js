@@ -148,21 +148,21 @@ function setUpSequences() {
 
     addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
         2, 400, WayPoints['STREAM300']);
-    addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    addEnemySequence(1000, 'enemy', 100, 1, 400 / 1000,
         2, 400, WayPoints['STREAM420']);
 
     addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
         5, 800, WayPoints['INLEFTDIAGUP']);
 
 
-    addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    addEnemySequence(1000, 'enemy', 100, 1, 400 / 1000,
         5, 800, WayPoints['INRIGHTDIAGUP']);
+
+
     addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
         1, 400, WayPoints['STREAM540']);
 
-
-
-    addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
+    addEnemySequence(1000, 'enemy', 100, 1, 400 / 1000,
         5, 800, WayPoints['RIGHTTOLEFTSHALLOW']);
 
     addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,

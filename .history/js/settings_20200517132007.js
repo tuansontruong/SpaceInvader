@@ -21,6 +21,21 @@ const WayPoints = {
             dir_y: 1
         }
     ],
+    // STREAM180: [{
+    //         rotation: 0,
+    //         x: 180,
+    //         y: -90,
+    //         dir_x: 0,
+    //         dir_y: 0
+    //     },
+    //     {
+    //         rotation: 0,
+    //         x: 180,
+    //         y: 620,
+    //         dir_x: 0,
+    //         dir_y: 1
+    //     }
+    // ],
     STREAM300: [{
             rotation: 0,
             x: 300,
@@ -81,6 +96,154 @@ const WayPoints = {
             dir_y: 1
         }
     ],
+    STREAM60RETURN: [{
+            rotation: 0,
+            x: 60,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 60,
+            y: 512,
+            dir_x: 0,
+            dir_y: 1
+        }, {
+            rotation: 0,
+            x: 60,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAM180RETURN: [{
+            rotation: 0,
+            x: 180,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 180,
+            y: 512,
+            dir_x: 0,
+            dir_y: 1
+        }, {
+            rotation: 0,
+            x: 180,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAM300RETURN: [{
+            rotation: 0,
+            x: 300,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 300,
+            y: 512,
+            dir_x: 0,
+            dir_y: 1
+        }, {
+            rotation: 0,
+            x: 300,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAM420RETURN: [{
+            rotation: 0,
+            x: 420,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 420,
+            y: 512,
+            dir_x: 0,
+            dir_y: 1
+        }, {
+            rotation: 0,
+            x: 420,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAM540RETURN: [{
+            rotation: 0,
+            x: 540,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 540,
+            y: 512,
+            dir_x: 0,
+            dir_y: 1
+        }, {
+            rotation: 0,
+            x: 540,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAM660RETURN: [{
+            rotation: 0,
+            x: 660,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 660,
+            y: 512,
+            dir_x: 0,
+            dir_y: 1
+        }, {
+            rotation: 0,
+            x: 660,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    LEFTTORIGHTDEEP: [{
+            rotation: 0,
+            x: 60,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 60,
+            y: 448,
+            dir_x: 0,
+            dir_y: 1
+        },
+        {
+            rotation: 0,
+            x: 810,
+            y: 448,
+            dir_x: 1,
+            dir_y: 0
+        }
+    ],
     LEFTTORIGHTSHALLOW: [{
             rotation: 0,
             x: 60,
@@ -100,6 +263,29 @@ const WayPoints = {
             x: 810,
             y: 128,
             dir_x: 1,
+            dir_y: 0
+        }
+    ],
+
+    RIGHTTOLEFTDEEP: [{
+            rotation: 0,
+            x: 660,
+            y: -90,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 660,
+            y: 448,
+            dir_x: 0,
+            dir_y: 1
+        },
+        {
+            rotation: 0,
+            x: -90,
+            y: 448,
+            dir_x: -1,
             dir_y: 0
         }
     ],
@@ -259,6 +445,96 @@ const WayPoints = {
             dir_y: -1
         }
     ],
+    STREAMFROMB60: [{
+            rotation: 0,
+            x: 60,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 60,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB180: [{
+            rotation: 0,
+            x: 180,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 180,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB300: [{
+            rotation: 0,
+            x: 300,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 300,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB420: [{
+            rotation: 0,
+            x: 420,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 420,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB540: [{
+            rotation: 0,
+            x: 540,
+            y: 620,
+            dir_x: 0,
+            dir_y: -1
+        },
+        {
+            rotation: 0,
+            x: 540,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ],
+    STREAMFROMB660: [{
+            rotation: 0,
+            x: 660,
+            y: 620,
+            dir_x: 0,
+            dir_y: 0
+        },
+        {
+            rotation: 0,
+            x: 660,
+            y: -90,
+            dir_x: 0,
+            dir_y: -1
+        }
+    ]
 };
 
 let EnemySequences = [];
@@ -276,7 +552,7 @@ const GameSetting = {
 
     bulletSpeed: 700 / 1000,
     bulletLife: 4000,
-    bulletFireRate: 300,
+    bulletFireRate: 4000,
     bulletTop: 10,
 
     playAreaWidth: 720,
@@ -286,7 +562,7 @@ const GameSetting = {
     playerDivName: 'playerSprite',
     playerStart: {
         x: 360,
-        y: 540,
+        y: 440,
     },
     playerStartLives: 3,
     playerState: {
@@ -294,7 +570,7 @@ const GameSetting = {
         dead: 1,
         hitFlashing: 2
     },
-    playerMoveStep: 40,
+    playerMoveStep: 8,
     enemyState: {
         ready: 1,
         dead: 0,

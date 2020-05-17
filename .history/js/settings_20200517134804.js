@@ -276,7 +276,7 @@ const GameSetting = {
 
     bulletSpeed: 700 / 1000,
     bulletLife: 4000,
-    bulletFireRate: 300,
+    bulletFireRate: 600,
     bulletTop: 10,
 
     playAreaWidth: 720,
