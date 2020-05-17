@@ -1,6 +1,6 @@
 body {
     background-color: #212529 !important;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
     overflow: hidden;
 }
@@ -17,20 +17,17 @@ body {
     /* background-image: url(https://media1.giphy.com/media/DzsqVikYdMZKo/source.gif); */
     position: relative;
     width: 720px;
-    height: 685px;
+    height: 700px;
     border: solid green 2px;
     overflow: hidden;
 }
 
 #scoreContainer {
-    text-align: center;
-    display: flex;
+    left: 15px;
+    top: 15px;
+    position: absolute;
+    text-align: left;
     z-index: 30;
-    color: white;
-    justify-content: center;
-    flex-direction: column;
-    height: 490px;
-    font-size: xx-large;
 }
 
 .score {
@@ -44,11 +41,10 @@ body {
 
 #messageContainer {
     position: absolute;
-    top: 220px;
+    top: 200px;
     text-align: center;
     width: 100%;
     z-index: 40;
-    color: darkgray;
 }
 
 .message {

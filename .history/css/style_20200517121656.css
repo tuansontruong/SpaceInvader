@@ -29,8 +29,8 @@ body {
     color: white;
     justify-content: center;
     flex-direction: column;
-    height: 490px;
-    font-size: xx-large;
+    height: 685px;
+    font-size: large;
 }
 
 .score {
@@ -44,7 +44,7 @@ body {
 
 #messageContainer {
     position: absolute;
-    top: 220px;
+    top: 250px;
     text-align: center;
     width: 100%;
     z-index: 40;

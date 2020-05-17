@@ -1,36 +1,27 @@
 body {
-    background-color: #212529 !important;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-    color: white;
+    background-color: #212529;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     overflow: hidden;
 }
 
-
-/* #playWindow {
-    position: relative;
-    display: flex;
-    justify-content: center;
-} */
+.container {}
 
 #playArea {
     background-image: url(https://noobtuts.com/content/unity/2d-space-shooter-game/background_scrolling.gif);
     /* background-image: url(https://media1.giphy.com/media/DzsqVikYdMZKo/source.gif); */
     position: relative;
     width: 720px;
-    height: 685px;
+    height: 576px;
     border: solid green 2px;
     overflow: hidden;
 }
 
 #scoreContainer {
-    text-align: center;
-    display: flex;
+    left: 15px;
+    top: 15px;
+    position: absolute;
+    text-align: left;
     z-index: 30;
-    color: white;
-    justify-content: center;
-    flex-direction: column;
-    height: 490px;
-    font-size: xx-large;
 }
 
 .score {
@@ -44,11 +35,10 @@ body {
 
 #messageContainer {
     position: absolute;
-    top: 220px;
+    top: 200px;
     text-align: center;
     width: 100%;
     z-index: 40;
-    color: darkgray;
 }
 
 .message {
