@@ -32,7 +32,7 @@ $(function() {
 
     $('#myModal').on('shown.bs.modal', function() {
         $("#myModal").keydown(function(e) {
-            if ($('#username').val().match(/^[A-Za-z ]+$/) && e.which == 13) {
+            if ($('#username').val().match(/^[A-Za-z]+$/) && e.which == 13) {
                 $("#submitUsername").click();
             }
         });
@@ -40,7 +40,7 @@ $(function() {
     })
 
     $("#submitUsername").click(function() {
-        if ($('#username').val().match(/^[A-Za-z ]+$/)) {
+        if ($('#username').val().match(/^[A-Za-z]+$/)) {
             $('#myModal').modal('hide');
             $('#usernameTxt').text("Hello " + $('#username').val().trim() + "!");
             $('#usernameTxt').css('color', 'coral');

@@ -320,10 +320,12 @@ let GameManager = {
     lastUpdated: Date.now(),
     elapsedTime: 0,
     fps: 0,
-    usersInfo: [
-        { user: "Justin Bieber", highScore: 700 },
-        { user: "Shawn Mendes", highScore: 1000 },
-        { user: "Selena Gomez", highScore: 500 },
-        { user: "Son", highScore: 200 }
-    ]
+    userInfo: {
+        currentUser: { user: "TTS", highScore: 21 },
+        gameHistory: [
+            { user: "Justin Bieber", highScore: 700 },
+            { user: "Shawn Mendes", highScore: 1000 },
+            { user: "Selena Gomez", highScore: 500 }
+        ]
+    }
 }

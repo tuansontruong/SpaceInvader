@@ -3,7 +3,7 @@ class Player extends Sprite {
         super(divName, position, assetDesc.fileName, new Size(assetDesc.width, assetDesc.height));
         this.lives = GameSetting.playerStartLives;
         this.score = 0;
-        this.highScore = highScore;
+        this.highScore = 0;
         this.state = GameSetting.playerState.ok;
         this.boundaryRect = boundaryRect; //for boudary
         this.isHit = false;

@@ -32,7 +32,7 @@ $(function() {
 
     $('#myModal').on('shown.bs.modal', function() {
         $("#myModal").keydown(function(e) {
-            if ($('#username').val().match(/^[A-Za-z ]+$/) && e.which == 13) {
+            if ($('#username').val().match(/^[A-Za-z]+$/) && e.which == 13) {
                 $("#submitUsername").click();
             }
         });
@@ -40,11 +40,11 @@ $(function() {
     })
 
     $("#submitUsername").click(function() {
-        if ($('#username').val().match(/^[A-Za-z ]+$/)) {
+        if ($('#username').val().match(/^[A-Za-z]+$/)) {
             $('#myModal').modal('hide');
             $('#usernameTxt').text("Hello " + $('#username').val().trim() + "!");
             $('#usernameTxt').css('color', 'coral');
-            clearMessages();
+            clearMessages()
             gameInit();
         } else {
             $('#username').focus()
@@ -85,12 +85,11 @@ function initPlayer() {
     if (GameManager.player) {
         GameManager.player.reset();
     } else {
-        let highScore = checkUsername();
         let asset = GameManager.assets['Ship3'];
         GameManager.player = new Player(GameSetting.playerDivName,
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
-            new Rect(0, 0, GameSetting.playAreaWidth - 100, GameSetting.playAreaHeight - 100), highScore);
+            new Rect(0, 0, GameSetting.playAreaWidth - 100, GameSetting.playAreaHeight - 100));
         GameManager.player.addToBoard(1);
     }
 }
@@ -104,7 +103,10 @@ function gameInit() {
     initBullet();
     // initExplosions();
     initEnemies();
+
     GameManager.phase = GameSetting.gamePhase.playing;
+    // GameManager.lastUpdated = Date.now();
+    // GameManager.elapsedTime = 0;
     setTimeout(update, GameSetting.FPS);
 }
 
@@ -135,28 +137,13 @@ function checkLocalStorage() {
         myLocalStorage.setItem(usersInfo);
     } else {
         let usersInfo = myLocalStorage.getItem();
-        usersInfo.forEach(item => {
-            if (item.user === $('#username').val().trim()) {
-                let regEx = /(^[A-Za-z ]+):(.*)/;
-                let match = regEx.exec($('#highScore').text().trim());
-                item.highScore = match[2];
-            }
-        });
-
-        myLocalStorage.setItem(usersInfo);
+        usersInfo.user = $('#username').val().trim();
+        usersInfo.highScore = $('#highScore').val().trim();
+        myLocalStorage.setItem(userInfo)
     }
-    updateDashboard();
-}
 
-function checkUsername() {
-    let users = myLocalStorage.getItem();
-    let highScore = 0;
-    users.forEach(item => {
-        if (item.user === $('#username').val().trim()) {
-            highScore = item.highScore;
-        }
-    });
-    return highScore;
+    updateDashboard();
+
 }
 
 function updateDashboard() {

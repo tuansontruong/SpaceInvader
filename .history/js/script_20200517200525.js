@@ -32,7 +32,7 @@ $(function() {
 
     $('#myModal').on('shown.bs.modal', function() {
         $("#myModal").keydown(function(e) {
-            if ($('#username').val().match(/^[A-Za-z ]+$/) && e.which == 13) {
+            if ($('#username').val().match(/^[A-Za-z]+$/) && e.which == 13) {
                 $("#submitUsername").click();
             }
         });
@@ -40,7 +40,7 @@ $(function() {
     })
 
     $("#submitUsername").click(function() {
-        if ($('#username').val().match(/^[A-Za-z ]+$/)) {
+        if ($('#username').val().match(/^[A-Za-z]+$/)) {
             $('#myModal').modal('hide');
             $('#usernameTxt').text("Hello " + $('#username').val().trim() + "!");
             $('#usernameTxt').css('color', 'coral');
@@ -135,14 +135,8 @@ function checkLocalStorage() {
         myLocalStorage.setItem(usersInfo);
     } else {
         let usersInfo = myLocalStorage.getItem();
-        usersInfo.forEach(item => {
-            if (item.user === $('#username').val().trim()) {
-                let regEx = /(^[A-Za-z ]+):(.*)/;
-                let match = regEx.exec($('#highScore').text().trim());
-                item.highScore = match[2];
-            }
-        });
-
+        usersInfo.user = $('#username').val().trim();
+        usersInfo.highScore = $('#highScore').val().trim();
         myLocalStorage.setItem(usersInfo);
     }
     updateDashboard();
@@ -150,13 +144,12 @@ function checkLocalStorage() {
 
 function checkUsername() {
     let users = myLocalStorage.getItem();
-    let highScore = 0;
     users.forEach(item => {
         if (item.user === $('#username').val().trim()) {
-            highScore = item.highScore;
+            alert(item.highScore)
+            return item.highScore;
         }
     });
-    return highScore;
 }
 
 function updateDashboard() {

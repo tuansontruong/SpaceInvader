@@ -32,7 +32,7 @@ $(function() {
 
     $('#myModal').on('shown.bs.modal', function() {
         $("#myModal").keydown(function(e) {
-            if ($('#username').val().match(/^[A-Za-z ]+$/) && e.which == 13) {
+            if ($('#username').val().match(/^[A-Za-z]+$/) && e.which == 13) {
                 $("#submitUsername").click();
             }
         });
@@ -40,7 +40,8 @@ $(function() {
     })
 
     $("#submitUsername").click(function() {
-        if ($('#username').val().match(/^[A-Za-z ]+$/)) {
+        if ($('#username').val().match(/^[A-Za-z]+$/)) {
+            checkUsername();
             $('#myModal').modal('hide');
             $('#usernameTxt').text("Hello " + $('#username').val().trim() + "!");
             $('#usernameTxt').css('color', 'coral');
@@ -85,12 +86,11 @@ function initPlayer() {
     if (GameManager.player) {
         GameManager.player.reset();
     } else {
-        let highScore = checkUsername();
         let asset = GameManager.assets['Ship3'];
         GameManager.player = new Player(GameSetting.playerDivName,
             new Point(GameSetting.playerStart.x, GameSetting.playerStart.y),
             asset,
-            new Rect(0, 0, GameSetting.playAreaWidth - 100, GameSetting.playAreaHeight - 100), highScore);
+            new Rect(0, 0, GameSetting.playAreaWidth - 100, GameSetting.playAreaHeight - 100), $('#highScore').val().trim());
         GameManager.player.addToBoard(1);
     }
 }
@@ -135,14 +135,8 @@ function checkLocalStorage() {
         myLocalStorage.setItem(usersInfo);
     } else {
         let usersInfo = myLocalStorage.getItem();
-        usersInfo.forEach(item => {
-            if (item.user === $('#username').val().trim()) {
-                let regEx = /(^[A-Za-z ]+):(.*)/;
-                let match = regEx.exec($('#highScore').text().trim());
-                item.highScore = match[2];
-            }
-        });
-
+        usersInfo.user = $('#username').val().trim();
+        usersInfo.highScore = $('#highScore').val().trim();
         myLocalStorage.setItem(usersInfo);
     }
     updateDashboard();
@@ -150,13 +144,11 @@ function checkLocalStorage() {
 
 function checkUsername() {
     let users = myLocalStorage.getItem();
-    let highScore = 0;
     users.forEach(item => {
         if (item.user === $('#username').val().trim()) {
-            highScore = item.highScore;
+            $('#highScore').text = item.highScore;
         }
     });
-    return highScore;
 }
 
 function updateDashboard() {

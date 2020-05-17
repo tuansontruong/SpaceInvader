@@ -4,6 +4,7 @@ class Player extends Sprite {
         this.lives = GameSetting.playerStartLives;
         this.score = 0;
         this.highScore = highScore;
+        alert(this.highScore);
         this.state = GameSetting.playerState.ok;
         this.boundaryRect = boundaryRect; //for boudary
         this.isHit = false;
