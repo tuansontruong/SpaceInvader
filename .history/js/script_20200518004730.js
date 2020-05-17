@@ -8,7 +8,7 @@ $(function() {
     setUpSequences();
     $(document).keydown(
         function(e) {
-            if (GameManager.phase == GameSetting.gamePhase.ready || GameManager.phase == GameSetting.gamePhase.gameOver) {
+            if (GameManager.phase == GameSetting.gamePhase.ready || GameManager.phase == GameSetting.gameOver) {
                 if (e.which == GameSetting.keyPress.space) {
                     $('#myModal').modal('show');
                 }
@@ -118,11 +118,11 @@ function update() {
 
     if (GameManager.enemies.gameOver || GameManager.player.lives <= 0) {
         if (GameManager.player.lives <= 0) {
-            let endSound = new Audio('img/smb_gameover.wav')
+            let endSound = new Audio('img/player-died.wav')
             endSound.play();
             showGameOver();
         } else {
-            let winSound = new Audio('img/smb_stage_clear.wav');
+            let winSound = new Audio('img/smb2-exit.wav');
             winSound.play();
             showGameComplete();
         }
@@ -201,14 +201,13 @@ function writeMessage(text) {
 }
 
 function showGameOver() {
-    GameManager.phase = GameSetting.gamePhase.gameOver;
+    GameManager.phase = GameSetting.gameOver;
     clearMessages();
     appendMessage('Game Over');
     appendMessage('Press Space To Reset');
 }
 
 function showGameComplete() {
-    GameManager.phase = GameSetting.gamePhase.ready;
     clearMessages();
     appendMessage('You won!!!');
     appendMessage('Press Space To Reset');

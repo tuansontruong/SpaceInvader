@@ -118,11 +118,11 @@ function update() {
 
     if (GameManager.enemies.gameOver || GameManager.player.lives <= 0) {
         if (GameManager.player.lives <= 0) {
-            let endSound = new Audio('img/smb_gameover.wav')
+            let endSound = new Audio('img/GameOver.wav')
             endSound.play();
             showGameOver();
         } else {
-            let winSound = new Audio('img/smb_stage_clear.wav');
+            let winSound = new Audio('img/smb2-exit.wav');
             winSound.play();
             showGameComplete();
         }
