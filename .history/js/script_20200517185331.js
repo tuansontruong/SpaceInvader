@@ -1,7 +1,7 @@
 let myLocalStorage;
 $(function() {
     myLocalStorage = new MyLocalStorage("userInfo");
-    checkLocalStorage();
+    updateDashboard();
     writeMessage('Press Space To Start');
     render();
     setUpSequences();

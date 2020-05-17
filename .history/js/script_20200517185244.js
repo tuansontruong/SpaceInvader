@@ -1,7 +1,7 @@
 let myLocalStorage;
 $(function() {
     myLocalStorage = new MyLocalStorage("userInfo");
-    checkLocalStorage();
+    updateDashboard();
     writeMessage('Press Space To Start');
     render();
     setUpSequences();
@@ -152,6 +152,9 @@ function updateDashboard() {
     let gameHistory = myLocalStorage.getItem().gameHistory;
     gameHistory.sort((a, b) => (a.highScore > b.highScore) ? -1 : 1);
     $("#ranking").empty();
+    // <div class="row score">
+    //                 <h1>High Scores</h1>
+    //             </div>
     let text = '<div class="row score" id="highScoreTitle"><h1>High Scores</h1></div>'
     $("#ranking").append(text);
     gameHistory.forEach((element, i) => {
