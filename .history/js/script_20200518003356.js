@@ -210,7 +210,7 @@ function showGameOver() {
 function showGameComplete() {
     GameManager.phase = GameSetting.gamePhase.ready;
     clearMessages();
-    appendMessage('You won!!!');
+    appendMessage('You win!!!');
     appendMessage('Press Space To Reset');
 }
 

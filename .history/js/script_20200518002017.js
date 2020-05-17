@@ -118,15 +118,10 @@ function update() {
 
     if (GameManager.enemies.gameOver || GameManager.player.lives <= 0) {
         if (GameManager.player.lives <= 0) {
-            let endSound = new Audio('img/player-died.wav')
-            endSound.play();
-            showGameOver();
-        } else {
-            let winSound = new Audio('img/smb2-exit.wav');
-            winSound.play();
-            showGameComplete();
+            let hitSound = new Audio('img/GameOver.wav')
+            hitSound.play();
         }
-
+        showGameOver();
         $('#username').val('');
     } else {
         GameManager.bullets.update(dt);
@@ -201,17 +196,11 @@ function writeMessage(text) {
 }
 
 function showGameOver() {
-    GameManager.phase = GameSetting.gamePhase.gameOver;
+    GameManager.phase = GameSetting.gameOver;
     clearMessages();
     appendMessage('Game Over');
     appendMessage('Press Space To Reset');
-}
-
-function showGameComplete() {
-    GameManager.phase = GameSetting.gamePhase.ready;
-    clearMessages();
-    appendMessage('You won!!!');
-    appendMessage('Press Space To Reset');
+    // setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSetting.pressSpaceDelay);
 }
 
 function addEnemySequence(delayBefore, image, score, lives, speed, number, delayBetween, waypoints) {

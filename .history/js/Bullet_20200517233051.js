@@ -54,7 +54,7 @@ class BulletCollection {
                         this.player.position.y)
                 )
             );
-            let shootingSound = new Audio("img/glass-break.wav");
+            let shootingSound = new Audio("img/gunSilencer.wav");
             shootingSound.play();
             this.total_bullets++;
         }

@@ -123,8 +123,7 @@ function update() {
             showGameOver();
         } else {
             let winSound = new Audio('img/smb2-exit.wav');
-            winSound.play();
-            showGameComplete();
+            endSound.play();
         }
 
         $('#username').val('');
@@ -205,13 +204,11 @@ function showGameOver() {
     clearMessages();
     appendMessage('Game Over');
     appendMessage('Press Space To Reset');
+    // setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSetting.pressSpaceDelay);
 }
 
 function showGameComplete() {
-    GameManager.phase = GameSetting.gamePhase.ready;
-    clearMessages();
-    appendMessage('You won!!!');
-    appendMessage('Press Space To Reset');
+
 }
 
 function addEnemySequence(delayBefore, image, score, lives, speed, number, delayBetween, waypoints) {
