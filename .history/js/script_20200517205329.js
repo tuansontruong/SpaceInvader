@@ -32,7 +32,7 @@ $(function() {
 
     $('#myModal').on('shown.bs.modal', function() {
         $("#myModal").keydown(function(e) {
-            if ($('#username').val().match(/^[^-\s][a-zA-Z0-9_\s-]+$/) && e.which == 13) {
+            if ($('#username').val().match(/^[A-Za-z\s]+$/) && e.which == 13) {
                 $("#submitUsername").click();
             }
         });
@@ -40,7 +40,7 @@ $(function() {
     })
 
     $("#submitUsername").click(function() {
-        if ($('#username').val().match(/^[^-\s][a-zA-Z0-9_\s-]+$/)) {
+        if ($('#username').val().match(/^[A-Za-z\s]+$/)) {
             $('#myModal').modal('hide');
             $('#usernameTxt').text("Hello " + $('#username').val().trim() + "!");
             $('#usernameTxt').css('color', 'coral');
