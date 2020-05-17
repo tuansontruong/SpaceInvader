@@ -16,7 +16,7 @@ body {
     background-image: url(https://noobtuts.com/content/unity/2d-space-shooter-game/background_scrolling.gif);
     /* background-image: url(https://media1.giphy.com/media/DzsqVikYdMZKo/source.gif); */
     position: relative;
-    min-width: 720px;
+    width: 720px;
     min-height: 685px;
     border: 10px solid;
     border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;
