@@ -162,8 +162,7 @@ function checkUsername() {
         }
     });
     if (!isInLocalStorage) {
-        alert("Add new user successfully!");
-        $('#usernameTxt').text("Welcome " + $('#username').val() + "!");
+        alert("Add new user successfully!")
         users.push({ user: $('#username').val(), highScore: 0 })
         myLocalStorage.setItem(users);
     }

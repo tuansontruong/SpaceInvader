@@ -2,7 +2,6 @@ let myLocalStorage;
 $(function() {
     myLocalStorage = new MyLocalStorage('usersInfo');
     checkLocalStorage();
-    updateDashboard();
     writeMessage('Press Space To Start');
     render();
     setUpSequences();
@@ -84,8 +83,7 @@ function initBullet() {
 
 function initPlayer() {
     if (GameManager.player) {
-        let highScore = checkUsername();
-        GameManager.player.reset(highScore);
+        GameManager.player.reset();
     } else {
         let highScore = checkUsername();
         let asset = GameManager.assets['Ship3'];
@@ -145,108 +143,103 @@ function checkLocalStorage() {
                 item.highScore = match[2];
             }
         });
+
         myLocalStorage.setItem(usersInfo);
     }
     updateDashboard();
 }
 
 function checkUsername() {
-    let isInLocalStorage = 0;
     let users = myLocalStorage.getItem();
     let highScore = 0;
     users.forEach(item => {
-        if (item.user === $('#username').val()) {
-            highScore = item.highScore;
-            $('#usernameTxt').text("Welcome Back " + $('#username').val() + "!");
-            isInLocalStorage = 1;
-        }
-    });
-    if (!isInLocalStorage) {
-        alert("Add new user successfully!");
-        $('#usernameTxt').text("Welcome " + $('#username').val() + "!");
-        users.push({ user: $('#username').val(), highScore: 0 })
-        myLocalStorage.setItem(users);
+            if (item.user === $('#username').val() {
+                    highScore = item.highScore;
+                    $('#usernameTxt').text("Welcome Back " + $('#username').val().trim() + "!");
+                }
+            });
+        return highScore;
     }
-    return highScore;
-}
 
-function updateDashboard() {
-    let gameHistory = myLocalStorage.getItem();
-    gameHistory.sort(function(first, second) { return second.highScore - first.highScore; });
-    $("#ranking").empty();
-    let text = '<div class="row score" id="highScoreTitle"><h1>Best Scores</h1></div>'
-    $("#ranking").append(text);
-    gameHistory.forEach((element, i) => {
-        if (i < 3) {
+    function updateDashboard() {
+        let gameHistory = myLocalStorage.getItem();
+        gameHistory.sort((a, b) => (a.highScore > b.highScore) ? -1 : 1);
+        $("#ranking").empty();
+        let text = '<div class="row score" id="highScoreTitle"><h1>High Scores</h1></div>'
+        $("#ranking").append(text);
+        gameHistory.forEach((element, i) => {
+            if (i == 3) {
+                return;
+            }
+
             let text = '<div class="row score"><div class="col col-sm-4" id="medal"><img src="img/' + ++i + '.png" width=64 height=64></div><div class="col col-sm-8" id="name">' + element.user + ": " + element.highScore + '</div></div>'
             $("#ranking").append(text);
-        }
-    });
-}
-
-function clearMessages() {
-    $('#messageContainer').empty();
-}
-
-function appendMessage(text) {
-    $('#messageContainer').append('<div class="message">' + text + '</div>');
-}
-
-function writeMessage(text) {
-    clearMessages();
-    appendMessage(text);
-}
-
-function showGameOver() {
-    GameManager.phase = GameSetting.gameOver;
-    clearMessages();
-    appendMessage('Game Over');
-    appendMessage('Press Space To Reset');
-    // setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSetting.pressSpaceDelay);
-}
-
-function addEnemySequence(delayBefore, image, score, lives, speed, number, delayBetween, waypoints) {
-    for (let i = 0; i < number; ++i) {
-        let delay = delayBetween;
-        if (i == 0) {
-            delay = delayBefore;
-        }
-        EnemySequences.push({
-            delayBefore: delay,
-            image: image,
-            waypoints: waypoints,
-            score: score,
-            lives: lives,
-            speed: speed
         });
     }
-}
 
-function setUpSequences() {
-    addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
-        5, 800, WayPoints['LEFTTORIGHTSHALLOW']);
+    function clearMessages() {
+        $('#messageContainer').empty();
+    }
+
+    function appendMessage(text) {
+        $('#messageContainer').append('<div class="message">' + text + '</div>');
+    }
+
+    function writeMessage(text) {
+        clearMessages();
+        appendMessage(text);
+    }
+
+    function showGameOver() {
+        GameManager.phase = GameSetting.gameOver;
+        clearMessages();
+        appendMessage('Game Over');
+        appendMessage('Press Space To Reset');
+        // setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSetting.pressSpaceDelay);
+    }
+
+    function addEnemySequence(delayBefore, image, score, lives, speed, number, delayBetween, waypoints) {
+        for (let i = 0; i < number; ++i) {
+            let delay = delayBetween;
+            if (i == 0) {
+                delay = delayBefore;
+            }
+            EnemySequences.push({
+                delayBefore: delay,
+                image: image,
+                waypoints: waypoints,
+                score: score,
+                lives: lives,
+                speed: speed
+            });
+        }
+    }
+
+    function setUpSequences() {
+        addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+            5, 800, WayPoints['LEFTTORIGHTSHALLOW']);
 
 
-    addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
-        2, 400, WayPoints['STREAM300']);
-    addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
-        2, 400, WayPoints['STREAM420']);
+        addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
+            2, 400, WayPoints['STREAM300']);
+        addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+            2, 400, WayPoints['STREAM420']);
 
-    addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
-        1, 400, WayPoints['STREAM660']);
-
-
-    addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
-        5, 800, WayPoints['INLEFTDIAGUP']);
-
-    addEnemySequence(2000, 'enemy', 100, 1, 200 / 1000,
-        1, 400, WayPoints['STREAM540']);
-    addEnemySequence(2000, 'enemy', 200, 1, 300 / 1000,
-        2, 400, WayPoints['STREAM300']);
-    addEnemySequence(2000, 'enemy', 200, 1, 200 / 1000,
-        5, 800, WayPoints['INRIGHTDIAGUP']);
+        addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+            1, 400, WayPoints['STREAM660']);
 
 
-    addEnemySequence(2000, 'enemy', 100, 1, 300 / 1000,
-        5, 800, WayPoints['RIGHTTOLEFTSHALLOW']);
-}
+        addEnemySequence(1000, 'enemy', 100, 1, 300 / 1000,
+            5, 800, WayPoints['INLEFTDIAGUP']);
+
+        addEnemySequence(2000, 'enemy', 100, 1, 200 / 1000,
+            1, 400, WayPoints['STREAM540']);
+        addEnemySequence(2000, 'enemy', 200, 1, 300 / 1000,
+            2, 400, WayPoints['STREAM300']);
+        addEnemySequence(2000, 'enemy', 200, 1, 200 / 1000,
+            5, 800, WayPoints['INRIGHTDIAGUP']);
+
+
+        addEnemySequence(2000, 'enemy', 100, 1, 300 / 1000,
+            5, 800, WayPoints['RIGHTTOLEFTSHALLOW']);
+    }

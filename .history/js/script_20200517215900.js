@@ -158,15 +158,8 @@ function checkUsername() {
         if (item.user === $('#username').val()) {
             highScore = item.highScore;
             $('#usernameTxt').text("Welcome Back " + $('#username').val() + "!");
-            isInLocalStorage = 1;
         }
     });
-    if (!isInLocalStorage) {
-        alert("Add new user successfully!");
-        $('#usernameTxt').text("Welcome " + $('#username').val() + "!");
-        users.push({ user: $('#username').val(), highScore: 0 })
-        myLocalStorage.setItem(users);
-    }
     return highScore;
 }
 
@@ -177,10 +170,12 @@ function updateDashboard() {
     let text = '<div class="row score" id="highScoreTitle"><h1>Best Scores</h1></div>'
     $("#ranking").append(text);
     gameHistory.forEach((element, i) => {
-        if (i < 3) {
-            let text = '<div class="row score"><div class="col col-sm-4" id="medal"><img src="img/' + ++i + '.png" width=64 height=64></div><div class="col col-sm-8" id="name">' + element.user + ": " + element.highScore + '</div></div>'
-            $("#ranking").append(text);
+        if (i == 3) {
+            return;
         }
+
+        let text = '<div class="row score"><div class="col col-sm-4" id="medal"><img src="img/' + ++i + '.png" width=64 height=64></div><div class="col col-sm-8" id="name">' + element.user + ": " + element.highScore + '</div></div>'
+        $("#ranking").append(text);
     });
 }
 

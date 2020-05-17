@@ -323,6 +323,6 @@ let GameManager = {
     usersInfo: [
         { user: "Justin Bieber", highScore: 700 },
         { user: "Shawn Mendes", highScore: 1000 },
-        { user: "Selena Gomez", highScore: 500 },
+        { user: "Son", highScore: 200 }
     ]
 }

@@ -13,16 +13,16 @@ class Player extends Sprite {
         this.setHighScore();
     }
 
-    reset(highScore) {
+    reset() {
         $('#' + this.divName).css({ 'opacity': '1.0' });
         this.lives = GameSetting.playerStartLives;
         this.score = 0;
         this.isHit = false;
         this.state = GameSetting.playerState.ok;
-        this.highScore = highScore;
         this.setLives();
         this.setScore();
         this.setHighScore();
+        this.highScore = 0;
         this.setPosition(GameSetting.playerStart.x, GameSetting.playerStart.y, 1)
     }
 
