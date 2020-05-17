@@ -14,15 +14,11 @@
 <body>
     <div class="row">
         <div class="col">
-            <div class="score" id="usernameTxt"></div>
-            <div id="ranking" class="animate__animated animate__fadeInDown">
-
-                <div class="score" id="lives">Lives:</div>
+            <div id="scoreContainer" class="animate__animated animate__fadeInDown">
+                <div class="score" id="lives">Lives: x3</div>
                 <div class="score" id="score">Current Score:</div>
                 <div class="score" id="highScore">High Score:</div>
             </div>
-
-
             <img class="animate__animated animate__bounceInLeft" width="200" height="200" src="https://cdn.clipart.email/0bd0ec169c1510822f12100ae3422a78_28-collection-of-spaceship-clipart-transparent-high-quality-_600-577.png" alt="" srcset="">
             <img class="animate__animated animate__bounceInUp" src="img/astronaut.png" alt="" srcset="" style="float: right;" width="200" height="200">
 
@@ -30,12 +26,6 @@
         <div class="col">
             <div class="animate__animated animate__fadeInRight" id="playWindow">
                 <div id="playArea">
-                    <div id="scoreContainer">
-
-                        <div class="score" id="lives">Lives:</div>
-                        <div class="score" id="score">Current Score:</div>
-                        <div class="score" id="highScore">High Score:</div>
-                    </div>
                     <div id="messageContainer">
                         <!-- <div class="message">Game over!</div>
                             <div class="message">Press Space</div> -->
@@ -49,36 +39,43 @@
     </div>
     <!-- <div class="explosion"></div> -->
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+            <!--Content-->
             <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal-body mx-3">
 
-                        <div class="md-form mb-4">
-                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Username:</label>
-                            <input type="text" id="username" class="form-control validate">
+                <!--Header-->
+                <div class="modal-header">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%281%29.jpg" alt="avatar" class="rounded-circle img-responsive">
+                </div>
+                <!--Body-->
+                <div class="modal-body text-center mb-1">
 
-                        </div>
+                    <h5 class="mt-1 mb-2">Maria Doe</h5>
 
+                    <div class="md-form ml-0 mr-0">
+                        <input type="password" type="text" id="form29" class="form-control form-control-sm validate ml-0">
+                        <label data-error="wrong" data-success="right" for="form29" class="ml-0">Enter password</label>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button class="btn btn-cyan mt-1">Login <i class="fas fa-sign-in ml-1"></i></button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" id="submitUsername" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
+            <!--/.Content-->
         </div>
     </div>
 
-    <script src="js/jquery331.min.js"></script>
+    <!-- <script src="js/jquery331.min.js"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
     <!-- jQuery library -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Popper JS -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

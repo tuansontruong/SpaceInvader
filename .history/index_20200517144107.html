@@ -14,15 +14,11 @@
 <body>
     <div class="row">
         <div class="col">
-            <div class="score" id="usernameTxt"></div>
-            <div id="ranking" class="animate__animated animate__fadeInDown">
-
-                <div class="score" id="lives">Lives:</div>
+            <div id="scoreContainer" class="animate__animated animate__fadeInDown">
+                <div class="score" id="lives">Lives: x3</div>
                 <div class="score" id="score">Current Score:</div>
                 <div class="score" id="highScore">High Score:</div>
             </div>
-
-
             <img class="animate__animated animate__bounceInLeft" width="200" height="200" src="https://cdn.clipart.email/0bd0ec169c1510822f12100ae3422a78_28-collection-of-spaceship-clipart-transparent-high-quality-_600-577.png" alt="" srcset="">
             <img class="animate__animated animate__bounceInUp" src="img/astronaut.png" alt="" srcset="" style="float: right;" width="200" height="200">
 
@@ -30,12 +26,6 @@
         <div class="col">
             <div class="animate__animated animate__fadeInRight" id="playWindow">
                 <div id="playArea">
-                    <div id="scoreContainer">
-
-                        <div class="score" id="lives">Lives:</div>
-                        <div class="score" id="score">Current Score:</div>
-                        <div class="score" id="highScore">High Score:</div>
-                    </div>
                     <div id="messageContainer">
                         <!-- <div class="message">Game over!</div>
                             <div class="message">Press Space</div> -->
@@ -49,15 +39,45 @@
     </div>
     <!-- <div class="explosion"></div> -->
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="defaultForm-email" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" id="defaultForm-pass" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-default">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="modal-body mx-3">
 
                         <div class="md-form mb-4">
-                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Username:</label>
-                            <input type="text" id="username" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+                            <input type="password" id="defaultForm-pass" class="form-control validate">
 
                         </div>
 
@@ -65,7 +85,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" id="submitUsername" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

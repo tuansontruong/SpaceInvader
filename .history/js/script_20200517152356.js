@@ -40,7 +40,7 @@ $(function() {
         if ($('#username').val().match(/^[A-Za-z]+$/)) {
             $('#myModal').modal('hide');
             $('#usernameTxt').text("Hello " + $('#username').val().trim() + "!");
-            $('#usernameTxt').css('color', 'coral');
+            $('#usernameTxt').css('color', 'aqua');
             clearMessages()
             gameInit();
         } else {
@@ -141,7 +141,6 @@ function writeMessage(text) {
 
 function showGameOver() {
     GameManager.phase = GameSetting.gameOver;
-    clearMessages();
     appendMessage('Game Over');
     appendMessage('Press Space To Reset');
     // setTimeout(function() { appendMessage('Press Space To Reset'); }, GameSetting.pressSpaceDelay);
@@ -191,4 +190,49 @@ function setUpSequences() {
 
     addEnemySequence(2000, 'enemy', 100, 1, 300 / 1000,
         5, 800, WayPoints['RIGHTTOLEFTSHALLOW']);
+
+
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     5, 800, WayPoints['INRIGHTDIAGUP']);
+
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     5, 800, WayPoints['INLEFTTURNDOWN']);
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     3, 400, WayPoints['STREAM300']);
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     2, 400, WayPoints['STREAM420']);
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     5, 800, WayPoints['INRIGHTTURNDOWN']);
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     3, 400, WayPoints['STREAM300']);
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     2, 400, WayPoints['STREAM420']);
+
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     5, 800, WayPoints['INLEFTTURNUP'])
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     3, 400, WayPoints['STREAM300']);
+    // addEnemySequence(1000, 'enemy', 100, 1, 200 / 1000,
+    //     2, 400, WayPoints['STREAM420']);
+
+    // console.log(EnemySequences);
 }
+
+
+
+
+// function endCountDown() {
+//     clearMessages();
+//     GameManager.phase = GameSetting.gamePhase.playing;
+//     GameManager.lastUpdated = Date.now();
+
+// }
+
+// function runCountDown() {
+//     GameManager.phase = GameSetting.gamePhase.countdownToStart;
+//     writeMessage(3);
+//     for (let i = 0; i < GameSetting.countDownValues.length; ++i) {
+//         setTimeout(writeMessage, GameSetting.countdownGap * (i + 1), GameSetting.countDownValues[i]);
+//     }
+//     setTimeout(endCountDown, (GameSetting.countDownValues.length + 1) * GameSetting.countdownGap);
+// }

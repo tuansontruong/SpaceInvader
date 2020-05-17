@@ -23,22 +23,17 @@ body {
     overflow: hidden;
 }
 
-#ranking {
+
+/* #scoreContainer {
     text-align: center;
     display: flex;
     z-index: 30;
     color: white;
     justify-content: center;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 490px;
     font-size: xx-large;
-}
-
-#usernameTxt {
-    color: coral;
-    text-align: center;
-    font-size: xxx-large;
-}
+} */
 
 #scoreContainer {
     position: absolute;
