@@ -1,98 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="row">
-        <div class="col">
-            <div class="score animate__animated animate__fadeInDown" id="usernameTxt">Hi there!</div>
-            <div id="ranking" class="animate__animated animate__fadeInDown">
-                <div class="row score">
-                    <h1>Best Scores</h1>
-                </div>
-                <div class="row score">
-                    <div class="col"><img src="img/1.png" width="64" height="64"></div>
-                    <div class="col"></div>
-                </div>
-                <div class="row score">
-                    <div class="col"><img src="img/1.png" width="64" height="64"></div>
-                    <div class="col"></div>
-                </div>
-                <div class="row score">
-                    <div class="col"><img src="img/2.png" width="64" height="64"></div>
-                    <div class="col"></div>
-                </div>
-                <div class="row score">
-                    <div class="col"><img src="img/3.png" width="64" height="64"></div>
-                    <div class="col"></div>
-                </div>
-            </div>
-
-
-            <img class="animate__animated animate__bounceInLeft" width="200" height="200" src="https://cdn.clipart.email/0bd0ec169c1510822f12100ae3422a78_28-collection-of-spaceship-clipart-transparent-high-quality-_600-577.png" alt="" srcset="">
-            <img class="animate__animated animate__bounceInUp" src="img/astronaut.png" alt="" srcset="" style="float: right;" width="200" height="200">
-
+      <div class="col">
+        <div
+          class="score animate__animated animate__fadeInDown"
+          id="usernameTxt"
+        >
+          Hi there!
         </div>
-        <div class="col">
-            <div class="animate__animated animate__fadeInRight" id="playWindow">
-                <div id="playArea">
-                    <div id="scoreContainer">
+        <div id="ranking" class="animate__animated animate__fadeInDown">
+          <div class="row score">
+            <h1>Best Scores</h1>
+          </div>
+          <div class="row score">
+            <div class="col">
+              <img src="img/1.png" width="64" height="64" />
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row score">
+            <div class="col">
+              <img src="img/1.png" width="64" height="64" />
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row score">
+            <div class="col">
+              <img src="img/2.png" width="64" height="64" />
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row score">
+            <div class="col">
+              <img src="img/3.png" width="64" height="64" />
+            </div>
+            <div class="col"></div>
+          </div>
+        </div>
 
-                        <div class="score" id="lives">Lives:</div>
-                        <div class="score" id="score">Current Score:</div>
-                        <div class="score" id="highScore">High Score:</div>
-                    </div>
-                    <div id="messageContainer">
-                        <!-- <div class="message">Game over!</div>
+        <img
+          class="animate__animated animate__bounceInLeft"
+          width="200"
+          height="200"
+          src="https://dejpknyizje2n.cloudfront.net/marketplace/products/cartoon-spaceship-rocket-sticker-1541173532.8366172.png"
+          alt=""
+          srcset=""
+        />
+        <img
+          class="animate__animated animate__bounceInUp"
+          src="img/astronaut.png"
+          alt=""
+          srcset=""
+          style="float: right"
+          width="200"
+          height="200"
+        />
+      </div>
+      <div class="col">
+        <div class="animate__animated animate__fadeInRight" id="playWindow">
+          <div id="playArea">
+            <div id="scoreContainer">
+              <div class="score" id="lives">Lives:</div>
+              <div class="score" id="score">Current Score:</div>
+              <div class="score" id="highScore">High Score:</div>
+            </div>
+            <div id="messageContainer">
+              <!-- <div class="message">Game over!</div>
                             <div class="message">Press Space</div> -->
-                    </div>
-                    <div class="explosion" id="explosion"></div>
-
-                </div>
-
             </div>
+            <div class="explosion" id="explosion"></div>
+          </div>
         </div>
+      </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Login by Username or Signup as a New User:</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="modal-body mx-3">
-
-                        <div class="md-form mb-4">
-                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Username:</label>
-                            <input type="text" id="username" class="form-control validate" placeholder="Bitna Kim, Shawn Mendes, Justin Bieber, ... ">
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" id="submitUsername" class="btn btn-primary">Login/Signup</button>
-                </div>
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              Login by Username or Signup as a New User:
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body mx-3">
+              <div class="md-form mb-4">
+                <label
+                  data-error="wrong"
+                  data-success="right"
+                  for="defaultForm-pass"
+                  >Username:</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  class="form-control validate"
+                  placeholder="Bitna Kim, Shawn Mendes, Justin Bieber, ... "
+                />
+              </div>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" id="submitUsername" class="btn btn-primary">
+              Login/Signup
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="js/jquery331.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -107,6 +164,5 @@
     <script src="js/Waypoint.js"></script>
     <script src="js/Bullet.js"></script>
     <script src="js/LocalStorage.js"></script>
-</body>
-
+  </body>
 </html>
